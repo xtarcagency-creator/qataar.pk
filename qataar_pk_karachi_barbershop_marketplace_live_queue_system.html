@@ -1,0 +1,3049 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qataar.pk — Claim Your Barber Chair from Home in Karachi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            ink: '#111113',
+            slate: '#6B6B76',
+            pearl: '#F6F6F8',
+            line: '#EBEBEF',
+            indigo: {
+              brand: '#635BFF',
+              soft: '#EFEFFE',
+              dark: '#4B44D6',
+            },
+            emerald: {
+              live: '#10B981',
+              soft: '#ECFDF5',
+              dark: '#047857',
+            }
+          },
+          maxWidth: {
+            'shell': '1400px',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      color: #111113;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .display-tight {
+      letter-spacing: -0.03em;
+    }
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+    /* Fresha signature soft lavender-to-sky mesh gradient behind hero */
+    .fresha-hero-mesh {
+      background:
+        radial-gradient(62% 85% at 18% 12%, rgba(243, 232, 255, 0.85) 0%, rgba(243, 232, 255, 0) 70%),
+        radial-gradient(58% 80% at 84% 18%, rgba(224, 242, 254, 0.85) 0%, rgba(224, 242, 254, 0) 72%),
+        linear-gradient(180deg, #FAF8FF 0%, #FFFFFF 100%);
+    }
+    /* Subtle purple-sky aura behind featured sections */
+    .fresha-soft-aura {
+      background:
+        radial-gradient(50% 60% at 50% 45%, rgba(243, 232, 255, 0.45) 0%, rgba(224, 242, 254, 0.25) 50%, rgba(255, 255, 255, 0) 100%);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    @keyframes pulseRing {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.35); }
+    }
+    .animate-live-pulse {
+      animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes slideUpDrawer {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .animate-drawer-up {
+      animation: slideUpDrawer 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeSlideRight {
+      from { transform: translateX(24px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .animate-panel-in {
+      animation: fadeSlideRight 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    /* Boarding pass ticket perforation notch */
+    .ticket-notch-left, .ticket-notch-right {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 9999px;
+      background-color: #F6F6F8;
+      border: 1px solid #EBEBEF;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .ticket-notch-left { left: -12px; }
+    .ticket-notch-right { right: -12px; }
+    /* Mobile bottom safe-area & floating thumb-zone pill positioning */
+    .pb-safe-nav {
+      padding-bottom: calc(0.375rem + env(safe-area-inset-bottom, 0px));
+    }
+    .floating-token-dock {
+      bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+    }
+    /* Prevent iOS Safari input auto-zoom on mobile */
+    @media (max-width: 767px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-white text-ink selection:bg-indigo-brand selection:text-white">
+
+  <!-- Toast Stack -->
+  <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 sm:left-auto sm:right-5 sm:translate-x-0 z-[120] flex flex-col gap-2 w-[calc(100vw-2rem)] max-w-sm pointer-events-none"></div>
+
+  <!-- ===================================================================== -->
+  <!-- TOP NAVIGATION BAR (DESKTOP + TABLET + MOBILE)                        -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-line">
+    <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex items-center justify-between gap-3">
+      
+      <!-- Brand Logo (Fresha-inspired clean lowercase wordmark + live dot) -->
+      <div class="flex items-center gap-6">
+        <button type="button" onclick="switchView('explore')" class="flex items-center gap-2 text-left group">
+          <span class="font-extrabold text-[23px] sm:text-[26px] tracking-[-0.04em] text-ink leading-none">
+            qataar<span class="text-indigo-brand">.pk</span>
+          </span>
+          <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-soft text-emerald-dark text-[11px] font-bold">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-live animate-live-pulse"></span>
+            Karachi Live
+          </span>
+        </button>
+
+        <!-- Desktop View Switcher Links -->
+        <nav class="hidden lg:flex items-center gap-1">
+          <button type="button" id="top-nav-explore" onclick="switchView('explore')"
+            class="px-3.5 py-2 rounded-full text-sm font-semibold transition-colors bg-pearl text-ink">
+            Explore
+          </button>
+          <button type="button" id="top-nav-split" onclick="switchView('split')"
+            class="px-3.5 py-2 rounded-full text-sm font-semibold transition-colors text-slate hover:text-ink flex items-center gap-1.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+              <line x1="8" y1="2" x2="8" y2="18"></line>
+              <line x1="16" y1="6" x2="16" y2="22"></line>
+            </svg>
+            <span>Map &amp; Venues</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Right Action Pills (Matches Fresha Top-Right "List your business" + "Menu" pills) -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <!-- Active Token Quick Pill (Shown when user holds a live token) -->
+        <button type="button" id="header-token-pill" onclick="openMyTokenModal()"
+          class="hidden items-center gap-2 px-3 sm:px-3.5 py-2 rounded-full bg-emerald-soft border border-emerald-live/30 text-emerald-dark text-xs font-bold hover:bg-emerald-live hover:text-white transition">
+          <span class="w-2 h-2 rounded-full bg-emerald-live animate-live-pulse"></span>
+          <span id="header-token-pill-text" class="font-mono tabular-nums">#QTR-18 • 1 ahead</span>
+        </button>
+
+        <!-- List Your Shop Pill -->
+        <button type="button" onclick="openOnboardingWizard()"
+          class="hidden sm:inline-flex items-center justify-center min-h-[40px] px-4 py-2 rounded-full border border-line bg-white hover:bg-pearl text-xs sm:text-sm font-semibold text-ink transition">
+          List your shop
+        </button>
+
+        <!-- Shop Counter Mode Toggle Pill -->
+        <button type="button" id="top-nav-counter" onclick="switchView(appState.activeView === 'counter' ? 'explore' : 'counter')"
+          class="inline-flex items-center gap-2 min-h-[40px] px-3.5 sm:px-4 py-2 rounded-full border border-line bg-white hover:bg-pearl text-xs sm:text-sm font-semibold text-ink transition">
+          <span id="counter-toggle-label">Shop Counter</span>
+          <span id="header-shop-count" class="font-mono text-[11px] px-1.5 py-0.5 rounded-full bg-indigo-soft text-indigo-brand font-bold tabular-nums">8</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 1: CONSUMER MARKETPLACE DISCOVERY (FRESHA HERO + MOBILE FEED)    -->
+  <!-- ===================================================================== -->
+  <main id="view-explore" class="flex-1 pb-24 lg:pb-16">
+
+    <!-- HERO SECTION (Fresha Mesh Glow + Floating 4-Segment Search Pill) -->
+    <section class="fresha-hero-mesh border-b border-line pt-6 pb-8 sm:pt-12 sm:pb-14">
+      <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Mobile Sticky-Style Rounded Search Pill (< 768px, inspired by Fresha mobile map screen) -->
+        <div class="md:hidden mb-5">
+          <div class="flex items-center gap-2 bg-white rounded-full border border-line shadow-[0_6px_24px_rgba(17,17,19,0.06)] p-1.5 pl-4">
+            <svg class="w-4 h-4 text-ink shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="mobile-hero-search" oninput="handleSearchChange(this.value)"
+              placeholder="Barbering · Nazimabad, Jauhar, DHA..."
+              class="w-full text-xs font-semibold text-ink bg-transparent focus:outline-none placeholder:text-slate" />
+            <button type="button" onclick="switchView('split')" title="Karachi Neighborhood Map"
+              class="w-9 h-9 rounded-full border border-line bg-pearl flex items-center justify-center shrink-0 text-ink">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                <line x1="8" y1="2" x2="8" y2="18"></line>
+                <line x1="16" y1="6" x2="16" y2="22"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Editorial Headline -->
+        <div class="max-w-3xl mx-auto text-left md:text-center">
+          <h1 class="display-tight font-extrabold text-[2rem] sm:text-5xl lg:text-[56px] leading-[1.06] text-ink">
+            Claim your barber chair from home in Karachi
+          </h1>
+          <p class="text-sm sm:text-base text-slate mt-3.5 max-w-xl md:mx-auto leading-relaxed">
+            Skip the waiting bench. See live chair queues across Bahadurabad, Nazimabad, Hyderi, Jauhar &amp; DHA, grab your digital token, and walk in right on time.
+          </p>
+        </div>
+
+        <!-- Desktop / Tablet Floating 4-Segment Search Bar (Fresha Exact Architecture) -->
+        <div class="hidden md:block max-w-4xl mx-auto mt-8">
+          <div class="bg-white rounded-full border border-line shadow-[0_12px_36px_rgba(17,17,19,0.07)] p-2 pl-6 grid grid-cols-12 items-center gap-2">
+            
+            <!-- Segment 1: Service or Shop -->
+            <div class="col-span-4 border-r border-line pr-3">
+              <label for="desktop-search-input" class="block text-[11px] font-bold text-ink">Service or shop</label>
+              <input id="desktop-search-input" type="text" oninput="handleSearchChange(this.value)"
+                placeholder="Skin fade, khat, champi..."
+                class="w-full text-xs text-slate font-medium bg-transparent focus:outline-none mt-0.5" />
+            </div>
+
+            <!-- Segment 2: Karachi Area -->
+            <div class="col-span-4 border-r border-line px-3">
+              <label for="desktop-area-select" class="block text-[11px] font-bold text-ink">Karachi Area</label>
+              <select id="desktop-area-select" onchange="setAreaFilter(this.value)"
+                class="w-full text-xs text-slate font-semibold bg-transparent focus:outline-none mt-0.5 cursor-pointer">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+
+            <!-- Segment 3: Queue Preference -->
+            <div class="col-span-2 px-2">
+              <label for="desktop-wait-select" class="block text-[11px] font-bold text-ink">Queue</label>
+              <select id="desktop-wait-select" onchange="setSortPreference(this.value)"
+                class="w-full text-xs text-slate font-semibold bg-transparent focus:outline-none mt-0.5 cursor-pointer">
+                <option value="wait">Shortest wait</option>
+                <option value="free">Free chair now</option>
+                <option value="price">Lowest PKR</option>
+                <option value="rating">Top rated</option>
+              </select>
+            </div>
+
+            <!-- Segment 4: Black Pill Search CTA -->
+            <div class="col-span-2 flex justify-end">
+              <button type="button" onclick="scrollToDirectory()"
+                class="w-full min-h-[46px] px-5 py-2.5 rounded-full bg-ink hover:bg-indigo-brand text-white text-sm font-bold transition-colors">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Karachi Queue Metric + Map Toggle Pill (Mirrors Fresha "433,743 appointments booked today") -->
+        <div class="mt-6 sm:mt-8 flex flex-col items-start md:items-center gap-3">
+          <div class="text-xs sm:text-sm text-ink font-medium">
+            <strong id="live-daily-cuts-stat" class="font-extrabold font-mono tabular-nums">1,428</strong> haircuts queued today across Karachi
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" onclick="switchView('split')"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-line bg-white hover:bg-pearl text-xs font-bold text-ink shadow-2xs transition">
+              <svg class="w-3.5 h-3.5 text-indigo-brand" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Open Karachi Map &amp; Split View</span>
+            </button>
+            <button type="button" onclick="openOnboardingWizard()"
+              class="sm:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-indigo-soft text-indigo-brand text-xs font-bold">
+              <span>+ List Your Shop</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HORIZONTAL FILTER CHIPS BAR (Fresha Mobile Filter Pill Bar) -->
+    <section id="directory-section" class="sticky top-16 sm:top-[72px] z-30 bg-white/95 backdrop-blur-md border-b border-line py-3">
+      <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 overflow-x-auto no-scrollbar" id="filter-chips-bar">
+        <!-- Dynamically populated filter & Karachi neighborhood chips -->
+      </div>
+    </section>
+
+    <!-- ACTIVE LIVE TOKEN BOARDING PASS BANNER (If user has claimed a token) -->
+    <section id="explore-active-token-section" class="hidden pt-6">
+      <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8" id="explore-active-token-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- PRIMARY VENUE DIRECTORY FEED (Inline Quick-Bookable Services like Fresha Mobile Screen) -->
+    <section class="py-7 sm:py-10">
+      <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
+          <div>
+            <h2 id="directory-title" class="display-tight font-extrabold text-xl sm:text-3xl text-ink">
+              Recommended in Karachi
+            </h2>
+            <p id="directory-subtitle" class="text-xs sm:text-sm text-slate mt-1">
+              8 independent barbershops with live chair queues • Tap any service to claim a token
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <select id="mobile-sort-select" onchange="setSortPreference(this.value)"
+              class="md:hidden min-h-[38px] px-3 py-1.5 rounded-full border border-line bg-white text-xs font-semibold text-ink">
+              <option value="wait">Sort: Shortest Wait</option>
+              <option value="free">Sort: Free Chair Now</option>
+              <option value="price">Sort: Lowest PKR</option>
+              <option value="rating">Sort: Top Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Venue Cards Grid: 1 col Mobile (Fresha full-width inline service card), 2 col Tablet, 3 col Desktop -->
+        <div id="venues-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Rendered dynamically -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CURATED SECTION: SHORTEST WAIT RIGHT NOW -->
+    <section class="py-8 sm:py-12 border-t border-line fresha-soft-aura">
+      <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-5">
+          <div>
+            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-dark uppercase tracking-wider">
+              <span class="w-2 h-2 rounded-full bg-emerald-live animate-live-pulse"></span>
+              Walk Right In
+            </span>
+            <h2 class="display-tight font-extrabold text-xl sm:text-2xl text-ink mt-0.5">
+              Zero-Wait &amp; Fast Chairs Right Now
+            </h2>
+          </div>
+          <button type="button" onclick="setSortPreference('free')" class="text-xs font-bold text-indigo-brand hover:underline">
+            See all →
+          </button>
+        </div>
+
+        <div id="fast-chairs-strip" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VERIFIED KARACHI REVIEWS (Mirrors Fresha 4-Column Customer Reviews Section) -->
+    <section class="py-10 sm:py-14 border-t border-line bg-white">
+      <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="display-tight font-extrabold text-2xl sm:text-3xl text-ink mb-6">
+          Reviews from Karachi regulars
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-pearl rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-amber-500 text-sm tracking-tight mb-3">★★★★★</div>
+              <h3 class="font-bold text-base text-ink">Saved 45 mins on Friday</h3>
+              <p class="text-xs text-slate mt-2 leading-relaxed">
+                "Took token #14 from home in Nazimabad No. 4 while Ustad Tariq was cutting #12. Reached Gol Market right when my number flashed."
+              </p>
+            </div>
+            <div class="flex items-center gap-2.5 mt-5 pt-3 border-t border-line">
+              <div class="w-8 h-8 rounded-full bg-ink text-white font-bold text-xs flex items-center justify-center">ZA</div>
+              <div>
+                <div class="text-xs font-bold text-ink">Zain Abbas</div>
+                <div class="text-[11px] text-slate">Nazimabad, Karachi</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-pearl rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-amber-500 text-sm tracking-tight mb-3">★★★★★</div>
+              <h3 class="font-bold text-base text-ink">Traffic buffer is genius</h3>
+              <p class="text-xs text-slate mt-2 leading-relaxed">
+                "Got stuck near Karsaz heading to Bahadurabad. Tapped 'Step Back 1 Spot' on my token pass and didn't lose my turn at The Fade Lounge."
+              </p>
+            </div>
+            <div class="flex items-center gap-2.5 mt-5 pt-3 border-t border-line">
+              <div class="w-8 h-8 rounded-full bg-indigo-brand text-white font-bold text-xs flex items-center justify-center">HS</div>
+              <div>
+                <div class="text-xs font-bold text-ink">Hamza Sheikh</div>
+                <div class="text-[11px] text-slate">Bahadurabad, Karachi</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-pearl rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-amber-500 text-sm tracking-tight mb-3">★★★★★</div>
+              <h3 class="font-bold text-base text-ink">No waiting bench crowd</h3>
+              <p class="text-xs text-slate mt-2 leading-relaxed">
+                "Hyderi Market gets packed every evening. Seeing exact minutes per chair before leaving home makes getting a haircut effortless."
+              </p>
+            </div>
+            <div class="flex items-center gap-2.5 mt-5 pt-3 border-t border-line">
+              <div class="w-8 h-8 rounded-full bg-emerald-dark text-white font-bold text-xs flex items-center justify-center">AR</div>
+              <div>
+                <div class="text-xs font-bold text-ink">Ahsan Raza</div>
+                <div class="text-[11px] text-slate">North Nazimabad, Karachi</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-pearl rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="text-amber-500 text-sm tracking-tight mb-3">★★★★★</div>
+              <h3 class="font-bold text-base text-ink">Best Jauhar barbers listed</h3>
+              <p class="text-xs text-slate mt-2 leading-relaxed">
+                "Compared Perfume Chowk Barbers and Studio 99 wait times in 5 seconds and picked the free chair. Paid Rs. 800 right at the shop."
+              </p>
+            </div>
+            <div class="flex items-center gap-2.5 mt-5 pt-3 border-t border-line">
+              <div class="w-8 h-8 rounded-full bg-ink text-white font-bold text-xs flex items-center justify-center">UT</div>
+              <div>
+                <div class="text-xs font-bold text-ink">Usama Tariq</div>
+                <div class="text-[11px] text-slate">Gulistan-e-Johar, Karachi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QATAAR FOR BARBERSHOPS PARTNER CTA BANNER (Mirrors Fresha for Business Split Section) -->
+    <section class="py-12 sm:py-16 border-t border-line bg-pearl/70">
+      <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl border border-line p-6 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-soft text-indigo-brand text-xs font-bold">
+              Qataar for Barbershops • Free Partner Onboarding
+            </span>
+            <h2 class="display-tight font-extrabold text-2xl sm:text-4xl text-ink leading-tight">
+              Run a barbershop in Karachi? Put your chairs online in 60 seconds.
+            </h2>
+            <p class="text-sm sm:text-base text-slate max-w-xl leading-relaxed">
+              Manage walk-in customers and home-queued digital tokens from one simple counter screen. No complex calendars—just tap <strong class="text-ink">"Finish Cut (+1)"</strong> when a chair clears.
+            </p>
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <button type="button" onclick="openOnboardingWizard()"
+                class="min-h-[48px] px-6 py-3 rounded-full bg-ink hover:bg-indigo-brand text-white text-sm font-bold transition-colors">
+                Register your barbershop →
+              </button>
+              <button type="button" onclick="switchView('counter')"
+                class="min-h-[48px] px-5 py-3 rounded-full border border-line bg-white hover:bg-pearl text-sm font-semibold text-ink transition">
+                Try Live Shop Counter
+              </button>
+            </div>
+          </div>
+
+          <!-- Mini Live Preview Card -->
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl border border-line bg-pearl p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-ink">Live Counter Preview</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-soft text-emerald-dark font-mono text-[11px] font-bold">● 3 Chairs Active</span>
+              </div>
+              <div class="bg-white rounded-xl border border-line p-3.5 flex items-center justify-between">
+                <div>
+                  <div class="text-[11px] font-mono text-slate">CHAIR 01 • USTAD TARIQ</div>
+                  <div class="font-bold text-sm text-ink mt-0.5">Serving #QTR-12 • 2 waiting</div>
+                </div>
+                <span class="px-3 py-1.5 rounded-full bg-ink text-white text-xs font-bold">Next (+1)</span>
+              </div>
+              <div class="bg-white rounded-xl border border-line p-3.5 flex items-center justify-between">
+                <div>
+                  <div class="text-[11px] font-mono text-slate">CHAIR 02 • USTAD BILAL</div>
+                  <div class="font-bold text-sm text-emerald-dark mt-0.5">Chair Open • 0 min wait</div>
+                </div>
+                <span class="px-3 py-1.5 rounded-full bg-emerald-soft text-emerald-dark text-xs font-bold">+ Walk-in</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BROWSE BY KARACHI NEIGHBORHOOD DIRECTORY FOOTER -->
+    <section class="py-10 border-t border-line bg-white">
+      <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 class="font-bold text-base text-ink mb-4">Browse barbershops by Karachi area</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3" id="neighborhood-directory-links">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 2: SPLIT MAP & VENUE EXPLORER (FRESHA DESKTOP/MOBILE SPLIT MAP)  -->
+  <!-- ===================================================================== -->
+  <section id="view-split" class="hidden flex-1 pb-20 lg:pb-0">
+    <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      
+      <!-- Top Split Toolbar -->
+      <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-line">
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar" id="split-area-pills">
+          <!-- Rendered dynamically -->
+        </div>
+        <button type="button" onclick="switchView('explore')"
+          class="min-h-[38px] px-4 py-1.5 rounded-full border border-line bg-white hover:bg-pearl text-xs font-bold text-ink shrink-0">
+          ← Back to Marketplace
+        </button>
+      </div>
+
+      <!-- 55% Venue List / 45% Interactive Karachi Map Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-4 items-start">
+        
+        <!-- Left Scrollable Venue List -->
+        <div class="lg:col-span-7 space-y-4 max-h-none lg:max-h-[calc(100vh-165px)] lg:overflow-y-auto lg:pr-2" id="split-venues-list">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Right Interactive Stylized Karachi Neighborhood Map -->
+        <div class="lg:col-span-5 order-first lg:order-last lg:sticky lg:top-[145px]">
+          <div class="relative w-full h-[340px] sm:h-[420px] lg:h-[calc(100vh-175px)] rounded-2xl border border-line overflow-hidden bg-[#EEF4F8]">
+            
+            <!-- Stylized Vector Karachi Road & Coastline Map -->
+            <svg class="w-full h-full" viewBox="0 0 600 620" preserveAspectRatio="xMidYMid slice">
+              <!-- Landmass -->
+              <rect width="600" height="620" fill="#F3F5F7" />
+              <!-- Arabian Sea Coastline (Bottom Left Clifton / DHA) -->
+              <path d="M0,450 Q120,480 210,560 L250,620 L0,620 Z" fill="#CBE6F7" />
+              <!-- Lyari & Malir River Beds -->
+              <path d="M60,340 Q220,330 340,260 T560,150" fill="none" stroke="#DCEBF5" stroke-width="14" stroke-linecap="round" />
+              <path d="M180,530 Q330,450 580,430" fill="none" stroke="#DCEBF5" stroke-width="16" stroke-linecap="round" />
+              <!-- Green Parks (Hill Park, Bagh Ibne Qasim, Safari Park) -->
+              <circle cx="355" cy="340" r="24" fill="#DCF2E3" />
+              <circle cx="485" cy="210" r="28" fill="#DCF2E3" />
+              <circle cx="245" cy="145" r="22" fill="#DCF2E3" />
+              <!-- Major Karachi Arteries (Shahrah-e-Faisal, Sher Shah Suri, University Rd) -->
+              <path d="M160,440 L340,365 L590,340" fill="none" stroke="#FFFFFF" stroke-width="9" />
+              <path d="M160,440 L340,365 L590,340" fill="none" stroke="#FDE68A" stroke-width="4" />
+              <path d="M235,50 L250,240 L230,390 L195,550" fill="none" stroke="#FFFFFF" stroke-width="8" />
+              <path d="M250,240 L450,235 L580,220" fill="none" stroke="#FFFFFF" stroke-width="7" />
+
+              <!-- Neighborhood Labels -->
+              <text x="190" y="95" fill="#7D8590" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">NORTH NAZIMABAD</text>
+              <text x="275" y="135" fill="#7D8590" font-size="10" font-weight="700" font-family="Plus Jakarta Sans">HYDERI</text>
+              <text x="155" y="210" fill="#7D8590" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">NAZIMABAD</text>
+              <text x="435" y="255" fill="#7D8590" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">GULISTAN-E-JOHAR</text>
+              <text x="315" y="330" fill="#7D8590" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">BAHADURABAD</text>
+              <text x="180" y="510" fill="#7D8590" font-size="11" font-weight="700" font-family="Plus Jakarta Sans">DHA / CLIFTON</text>
+              <text x="45" y="575" fill="#4B89B5" font-size="12" font-weight="700" font-family="Plus Jakarta Sans">ARABIAN SEA</text>
+            </svg>
+
+            <!-- Interactive Map Price & Wait Pins Overlay -->
+            <div id="karachi-map-pins" class="absolute inset-0">
+              <!-- Dynamically rendered pins -->
+            </div>
+
+            <!-- Bottom Map Legend -->
+            <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-xs rounded-xl border border-line px-3.5 py-2 flex items-center justify-between text-[11px]">
+              <span class="font-bold text-ink">Tap any price pin to preview live queue</span>
+              <span class="inline-flex items-center gap-1.5 text-emerald-dark font-bold">
+                <span class="w-2 h-2 rounded-full bg-emerald-live"></span>
+                Open Chair
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 3: SHOPIFY-INSPIRED MERCHANT SHOP COUNTER & LIVE ANALYTICS       -->
+  <!-- ===================================================================== -->
+  <section id="view-counter" class="hidden flex-1 pb-24 lg:pb-14 bg-pearl">
+    <div class="max-w-shell mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      
+      <!-- Top Counter Control Header -->
+      <div class="bg-white rounded-2xl border border-line p-4 sm:p-6 mb-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-soft text-emerald-dark text-xs font-bold mb-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-live animate-live-pulse"></span>
+              <span>Live Merchant Floor Console</span>
+            </div>
+            <h1 id="counter-heading" class="display-tight font-extrabold text-2xl sm:text-3xl text-ink">
+              Shop Counter &amp; Live Queue
+            </h1>
+            <p class="text-xs sm:text-sm text-slate mt-1">
+              Tap <strong class="text-ink">"Finish Cut &amp; Call Next (+1)"</strong> when a chair clears—customers waiting at home see their live token update immediately.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <button type="button" onclick="openOnboardingWizard()"
+              class="min-h-[42px] px-4 py-2 rounded-full bg-indigo-soft hover:bg-indigo-brand text-indigo-brand hover:text-white text-xs font-bold transition">
+              + Register New Shop
+            </button>
+            <button type="button" onclick="switchView('explore')"
+              class="min-h-[42px] px-4 py-2 rounded-full border border-line bg-white hover:bg-pearl text-xs font-semibold text-ink transition">
+              ← Marketplace
+            </button>
+          </div>
+        </div>
+
+        <!-- Shop Selector Bar -->
+        <div class="mt-4 pt-4 border-t border-line flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-2.5 w-full sm:w-auto">
+            <label for="counter-shop-dropdown" class="text-xs font-bold text-slate shrink-0">Active Barbershop:</label>
+            <select id="counter-shop-dropdown" onchange="selectCounterShop(this.value)"
+              class="w-full sm:w-80 min-h-[42px] rounded-xl border border-line bg-pearl px-3.5 py-2 text-xs sm:text-sm font-bold text-ink focus:outline-none focus:border-ink">
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+          <div id="counter-shop-address" class="text-xs text-slate font-medium">
+            <!-- Shop landmark -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Shopify-Inspired Live Metrics Strip (3 KPI Cards + Mini Activity Bars) -->
+      <div id="counter-kpi-strip" class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Per-Chair Live Floor Control Cards -->
+      <div id="counter-chairs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Rendered dynamically -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PERSISTENT MOBILE BOTTOM NAVIGATION BAR (< 1024px)                    -->
+  <!-- ===================================================================== -->
+  <nav class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-line px-2 pt-1.5 pb-safe-nav">
+    <div class="grid grid-cols-4 gap-1">
+      <button type="button" onclick="switchView('explore')" id="mob-tab-explore"
+        class="flex flex-col items-center justify-center py-1.5 rounded-xl text-indigo-brand">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="text-[10px] font-bold mt-0.5">Explore</span>
+      </button>
+
+      <button type="button" onclick="switchView('split')" id="mob-tab-split"
+        class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span class="text-[10px] font-semibold mt-0.5">Map &amp; Search</span>
+      </button>
+
+      <button type="button" onclick="openMyTokenModal()" id="mob-tab-token"
+        class="relative flex flex-col items-center justify-center py-1.5 rounded-xl text-slate">
+        <span id="mob-token-dot" class="hidden absolute top-1.5 right-6 w-2 h-2 rounded-full bg-emerald-live animate-live-pulse"></span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span id="mob-tab-token-label" class="text-[10px] font-semibold mt-0.5">My Token</span>
+      </button>
+
+      <button type="button" onclick="switchView('counter')" id="mob-tab-counter"
+        class="flex flex-col items-center justify-center py-1.5 rounded-xl text-slate">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        </svg>
+        <span class="text-[10px] font-semibold mt-0.5">Shop Counter</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===================================================================== -->
+  <!-- ONE-HANDED FLOATING LIVE TOKEN PILL (THUMB-ZONE ABOVE BOTTOM NAV)     -->
+  <!-- ===================================================================== -->
+  <div id="floating-mobile-token-pill" class="hidden lg:hidden fixed inset-x-3 z-40 floating-token-dock pointer-events-none">
+    <button type="button" onclick="openMyTokenModal()"
+      class="pointer-events-auto w-full bg-ink text-white rounded-full px-4 py-3 shadow-[0_12px_30px_rgba(17,17,19,0.28)] border border-white/15 flex items-center justify-between gap-3 active:scale-[0.99] transition-transform">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-live animate-live-pulse shrink-0"></span>
+        <span id="floating-token-pill-text" class="font-mono text-xs font-bold text-white truncate tabular-nums">
+          Token #KHI-18 • 1 ahead • ~12m wait
+        </span>
+      </div>
+      <span class="text-[11px] font-bold text-emerald-live shrink-0">Live Pass ↑</span>
+    </button>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- DRAWER / MODAL 1: SHOP SERVICE MENU, CHAIR PICKER & TOKEN CHECKOUT    -->
+  <!-- (Inspired by Refero Itemized Service Selection Sheet + Right Summary) -->
+  <!-- ===================================================================== -->
+  <div id="shop-drawer-backdrop" onclick="closeShopDrawer()" class="hidden fixed inset-0 z-50 bg-ink/50 backdrop-blur-xs flex items-end lg:items-center justify-center p-0 lg:p-6">
+    <div id="shop-drawer-panel" onclick="event.stopPropagation()"
+      class="w-full max-w-4xl bg-white rounded-t-[24px] lg:rounded-3xl border border-line shadow-2xl max-h-[92dvh] flex flex-col overflow-hidden animate-drawer-up">
+      <!-- Dynamically populated -->
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- DRAWER / MODAL 2: LIVE TOKEN BOARDING PASS ("MY TOKEN")               -->
+  <!-- ===================================================================== -->
+  <div id="token-modal-backdrop" onclick="closeMyTokenModal()" class="hidden fixed inset-0 z-50 bg-ink/55 backdrop-blur-xs flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div id="token-modal-panel" onclick="event.stopPropagation()"
+      class="w-full max-w-md bg-pearl rounded-t-[24px] sm:rounded-3xl border border-line shadow-2xl max-h-[92dvh] flex flex-col overflow-hidden animate-drawer-up">
+      <!-- Dynamically populated -->
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 3: MANGOMINT-INSPIRED 4-STEP BARBERSHOP REGISTRATION WIZARD     -->
+  <!-- ===================================================================== -->
+  <div id="onboarding-modal-backdrop" onclick="closeOnboardingWizard()" class="hidden fixed inset-0 z-50 bg-white overflow-y-auto min-h-[100dvh] h-[100dvh]">
+    <div id="onboarding-wizard-panel" onclick="event.stopPropagation()" class="min-h-[100dvh] flex flex-col bg-white">
+      
+      <!-- Mobile Swipe-to-Dismiss Drag Handle -->
+      <div data-sheet-handle="onboarding" class="sm:hidden pt-2.5 pb-1 flex justify-center cursor-grab active:cursor-grabbing touch-none">
+        <span class="w-10 h-1.5 rounded-full bg-line"></span>
+      </div>
+
+      <!-- Top Wizard Bar -->
+      <div class="px-4 sm:px-8 h-14 sm:h-16 flex items-center justify-between border-b border-line shrink-0">
+        <span class="font-extrabold text-xl tracking-[-0.04em] text-ink">
+          qataar<span class="text-indigo-brand">.pk</span>
+          <span class="ml-2 text-xs font-semibold text-slate">Partner Setup</span>
+        </span>
+        <button type="button" onclick="closeOnboardingWizard()"
+          class="w-9 h-9 rounded-full border border-line hover:bg-pearl flex items-center justify-center text-ink text-sm font-bold">
+          ✕
+        </button>
+      </div>
+
+      <!-- Wizard Step Content -->
+      <div id="onboarding-wizard-body" class="flex-1 flex flex-col items-center justify-center px-4 py-6 sm:py-12 overflow-y-auto">
+        <!-- Dynamically populated Step 1 of 4 -> Step 4 of 4 -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- CLEAN MARKETPLACE FOOTER                                              -->
+  <!-- ===================================================================== -->
+  <footer class="border-t border-line bg-pearl py-8 px-4 sm:px-6 lg:px-8 mt-auto mb-14 lg:mb-0">
+    <div class="max-w-shell mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate">
+      <div class="flex items-center gap-2">
+        <span class="font-extrabold text-base tracking-[-0.04em] text-ink">qataar<span class="text-indigo-brand">.pk</span></span>
+        <span>• Live Barbershop Queue &amp; Booking Marketplace for Karachi</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Bahadurabad • Nazimabad • North Nazimabad • Hyderi • Jauhar • DHA</span>
+        <button type="button" onclick="resetDemoState()" class="px-3 py-1.5 rounded-full border border-line bg-white hover:bg-ink hover:text-white font-semibold text-ink transition">
+          Reset Demo
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT APPLICATION ENGINE                                         -->
+  <!-- ===================================================================== -->
+  <script>
+    const STORAGE_KEY = 'qataar_pk_refero_marketplace_v2';
+
+    const KARACHI_AREAS = [
+      'All Karachi',
+      'Nazimabad',
+      'Bahadurabad',
+      'North Nazimabad',
+      'Hyderi',
+      'Gulistan-e-Johar',
+      'DHA / Clifton'
+    ];
+
+    const BARBER_PHOTOS = [
+      'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1532710093739-9470acff878f?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=900&q=80'
+    ];
+
+    const USTAD_AVATARS = [
+      'https://images.unsplash.com/photo-1534308143481-c55f00be8bd7?auto=format&fit=crop&w=200&q=80',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+      'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80'
+    ];
+
+    function getSeedShops() {
+      return [
+        {
+          id: 'shop-tariq-nazimabad',
+          name: 'Ustad Tariq & Sons Hair Studio',
+          area: 'Nazimabad',
+          landmark: 'Nazimabad No. 4, Near Gol Market',
+          rating: 4.9,
+          reviewCount: 642,
+          featured: true,
+          photo: BARBER_PHOTOS[1],
+          mapCoords: { x: 32, y: 34 },
+          nextToken: 16,
+          completedToday: 38,
+          services: [
+            { id: 's1', category: 'Haircuts', name: 'Classic Ustad Haircut', durationMins: 25, pricePkr: 450, desc: 'Tailored scissor & clipper cut with fresh razor neck lineup.' },
+            { id: 's2', category: 'Beard & Khat', name: 'Straight-Razor Khat & Beard', durationMins: 15, pricePkr: 250, desc: 'Crisp cheek and neck khat with alum block & soothing balm.' },
+            { id: 's3', category: 'Champi & Skin', name: 'Desi Mustard Oil Champi', durationMins: 20, pricePkr: 300, desc: 'Deep scalp & shoulder pressure massage with warm mustard oil.' },
+            { id: 's4', category: 'Haircuts', name: 'Low Taper Fade', durationMins: 35, pricePkr: 650, desc: 'Clean taper blend with scissor crop top.' }
+          ],
+          chairs: [
+            {
+              id: 'c-tariq-1',
+              number: 1,
+              ustadName: 'Ustad Tariq',
+              specialty: 'Classic Cuts & Razor Khat',
+              avatar: USTAD_AVATARS[0],
+              currentCustomer: { tokenNumber: 15, name: 'Zain Abbas', service: 'Classic Ustad Haircut', remainingMins: 12, source: 'APP' },
+              queue: []
+            },
+            {
+              id: 'c-tariq-2',
+              number: 2,
+              ustadName: 'Ustad Imran',
+              specialty: 'Taper Fades & Desi Champi',
+              avatar: USTAD_AVATARS[1],
+              currentCustomer: { tokenNumber: 14, name: 'Walk-in (Kamran)', service: 'Low Taper Fade', remainingMins: 18, source: 'WALK-IN' },
+              queue: []
+            },
+            {
+              id: 'c-tariq-3',
+              number: 3,
+              ustadName: 'Ustad Sajid',
+              specialty: 'Express Khat & Kids Cuts',
+              avatar: USTAD_AVATARS[2],
+              currentCustomer: { tokenNumber: 13, name: 'Taha Siddiqui', service: 'Straight-Razor Khat & Beard', remainingMins: 14, source: 'APP' },
+              queue: []
+            }
+          ]
+        },
+        {
+          id: 'shop-fade-lounge-bhd',
+          name: 'The Fade Lounge',
+          area: 'Bahadurabad',
+          landmark: 'Alamgir Road, Bahadurabad',
+          rating: 5.0,
+          reviewCount: 814,
+          featured: true,
+          photo: BARBER_PHOTOS[0],
+          mapCoords: { x: 56, y: 54 },
+          nextToken: 22,
+          completedToday: 51,
+          services: [
+            { id: 's1', category: 'Haircuts', name: 'Zero Skin Fade', durationMins: 40, pricePkr: 1100, desc: 'Precision bald-to-crown gradient fade with foil shaver finish.' },
+            { id: 's2', category: 'Beard & Khat', name: 'Hot Towel Beard Sculpt', durationMins: 25, pricePkr: 600, desc: 'Eucalyptus steam towel, symmetrical beard trim & razor edge.' },
+            { id: 's3', category: 'Champi & Skin', name: 'Charcoal Detox Facial', durationMins: 35, pricePkr: 1500, desc: 'Deep pore cleansing steam facial for Karachi dust & pollution.' },
+            { id: 's4', category: 'Combos', name: 'Bahadurabad Full Grooming', durationMins: 60, pricePkr: 1650, desc: 'Skin Fade + Hot Towel Beard Sculpt + 15m Cooling Champi.' }
+          ],
+          chairs: [
+            {
+              id: 'c-fade-1',
+              number: 1,
+              ustadName: 'Ustad Bilal',
+              specialty: 'Zero Skin Fades & Crops',
+              avatar: USTAD_AVATARS[1],
+              currentCustomer: { tokenNumber: 20, name: 'Hamza Sheikh', service: 'Zero Skin Fade', remainingMins: 18, source: 'APP' },
+              queue: [
+                { tokenNumber: 21, name: 'Omer Javed', phone: '0321-8891201', service: 'Hot Towel Beard Sculpt', durationMins: 25, pricePkr: 600, source: 'APP' }
+              ]
+            },
+            {
+              id: 'c-fade-2',
+              number: 2,
+              ustadName: 'Ustad Danyal',
+              specialty: 'Scissor Layering & Blowdry',
+              avatar: USTAD_AVATARS[3],
+              currentCustomer: { tokenNumber: 19, name: 'Bilal Zafar', service: 'Zero Skin Fade', remainingMins: 22, source: 'APP' },
+              queue: []
+            },
+            {
+              id: 'c-fade-3',
+              number: 3,
+              ustadName: 'Ustad Haris',
+              specialty: 'Beard Architecture & Facials',
+              avatar: USTAD_AVATARS[0],
+              currentCustomer: { tokenNumber: 18, name: 'Walk-in (Arsalan)', service: 'Charcoal Detox Facial', remainingMins: 25, source: 'WALK-IN' },
+              queue: []
+            },
+            {
+              id: 'c-fade-4',
+              number: 4,
+              ustadName: 'Ustad Kashif',
+              specialty: 'Taper Fades & Hot Towel Shave',
+              avatar: USTAD_AVATARS[2],
+              currentCustomer: { tokenNumber: 17, name: 'Faisal Baig', service: 'Hot Towel Beard Sculpt', remainingMins: 19, source: 'APP' },
+              queue: []
+            }
+          ]
+        },
+        {
+          id: 'shop-fivestar-nnz',
+          name: "Five Star Men's Salon",
+          area: 'North Nazimabad',
+          landmark: 'Block H, Near Five Star Chowrangi',
+          rating: 4.9,
+          reviewCount: 495,
+          featured: true,
+          photo: BARBER_PHOTOS[2],
+          mapCoords: { x: 36, y: 17 },
+          nextToken: 12,
+          completedToday: 33,
+          services: [
+            { id: 's1', category: 'Combos', name: 'Haircut + Beard Combo', durationMins: 40, pricePkr: 750, desc: 'Complete haircut & straight-razor beard lineup combo.' },
+            { id: 's2', category: 'Haircuts', name: 'Modern Textured Cut', durationMins: 30, pricePkr: 550, desc: 'Layered scissor & clipper cut with blowdry styling.' },
+            { id: 's3', category: 'Champi & Skin', name: 'Menthol Head Massage', durationMins: 20, pricePkr: 400, desc: 'Cooling peppermint oil scalp & neck massage.' }
+          ],
+          chairs: [
+            {
+              id: 'c-five-1',
+              number: 1,
+              ustadName: 'Ustad Fahad',
+              specialty: 'Textured Fades & Combos',
+              avatar: USTAD_AVATARS[0],
+              currentCustomer: null,
+              queue: []
+            },
+            {
+              id: 'c-five-2',
+              number: 2,
+              ustadName: 'Ustad Naveed',
+              specialty: 'Classic Cuts & Head Massage',
+              avatar: USTAD_AVATARS[2],
+              currentCustomer: { tokenNumber: 11, name: 'Muneeb Ur Rehman', service: 'Haircut + Beard Combo', remainingMins: 16, source: 'APP' },
+              queue: []
+            },
+            {
+              id: 'c-five-3',
+              number: 3,
+              ustadName: 'Ustad Rizwan',
+              specialty: 'Beard Sculpting & Razor Khat',
+              avatar: USTAD_AVATARS[3],
+              currentCustomer: null,
+              queue: []
+            }
+          ]
+        },
+        {
+          id: 'shop-hyderi-classic',
+          name: 'Hyderi Classic Hamam & Grooming',
+          area: 'Hyderi',
+          landmark: 'Hyderi Market, Block G, North Nazimabad',
+          rating: 4.8,
+          reviewCount: 720,
+          featured: false,
+          photo: BARBER_PHOTOS[3],
+          mapCoords: { x: 48, y: 23 },
+          nextToken: 31,
+          completedToday: 64,
+          services: [
+            { id: 's1', category: 'Haircuts', name: 'Classic Cut', durationMins: 25, pricePkr: 400, desc: 'Clean everyday haircut with razor neck & sideburn finish.' },
+            { id: 's2', category: 'Beard & Khat', name: 'Traditional Khat', durationMins: 15, pricePkr: 200, desc: 'Quick, sharp straight-razor khat with cold towel.' },
+            { id: 's3', category: 'Champi & Skin', name: 'Oil Champi', durationMins: 20, pricePkr: 350, desc: 'Traditional 20-minute head massage with almond or mustard oil.' }
+          ],
+          chairs: [
+            {
+              id: 'c-hyd-1',
+              number: 1,
+              ustadName: 'Ustad Waqas',
+              specialty: 'Classic Cuts & Razor Work',
+              avatar: USTAD_AVATARS[1],
+              currentCustomer: { tokenNumber: 30, name: 'Ahsan Raza', service: 'Classic Cut', remainingMins: 8, source: 'APP' },
+              queue: []
+            },
+            {
+              id: 'c-hyd-2',
+              number: 2,
+              ustadName: 'Ustad Asif',
+              specialty: 'Oil Champi & Traditional Khat',
+              avatar: USTAD_AVATARS[3],
+              currentCustomer: { tokenNumber: 29, name: 'Walk-in (Salman)', service: 'Oil Champi', remainingMins: 11, source: 'WALK-IN' },
+              queue: []
+            },
+            {
+              id: 'c-hyd-3',
+              number: 3,
+              ustadName: 'Ustad Nadeem',
+              specialty: 'Taper Cuts & Beard Trim',
+              avatar: USTAD_AVATARS[0],
+              currentCustomer: { tokenNumber: 28, name: 'Kamran Haider', service: 'Traditional Khat', remainingMins: 9, source: 'APP' },
+              queue: []
+            },
+            {
+              id: 'c-hyd-4',
+              number: 4,
+              ustadName: 'Ustad Zubair',
+              specialty: 'Express Haircuts',
+              avatar: USTAD_AVATARS[2],
+              currentCustomer: { tokenNumber: 27, name: 'Walk-in (Adnan)', service: 'Classic Cut', remainingMins: 14, source: 'WALK-IN' },
+              queue: []
+            }
+          ]
+        },
+        {
+          id: 'shop-perfume-jauhar',
+          name: 'Perfume Chowk Barbers',
+          area: 'Gulistan-e-Johar',
+          landmark: 'Block 14, Near Perfume Chowk, Jauhar',
+          rating: 4.9,
+          reviewCount: 530,
+          featured: true,
+          photo: BARBER_PHOTOS[4],
+          mapCoords: { x: 77, y: 42 },
+          nextToken: 19,
+          completedToday: 44,
+          services: [
+            { id: 's1', category: 'Haircuts', name: 'Taper Fade', durationMins: 35, pricePkr: 800, desc: 'Clean mid or low taper fade with textured styling.' },
+            { id: 's2', category: 'Beard & Khat', name: 'Beard Trim & Lineup', durationMins: 20, pricePkr: 400, desc: 'Precision trimmer shaping with fresh razor edge.' },
+            { id: 's3', category: 'Champi & Skin', name: 'Keratin Protein Wash', durationMins: 30, pricePkr: 1200, desc: 'Deep conditioning hair spa & blowdry finish.' }
+          ],
+          chairs: [
+            {
+              id: 'c-perf-1',
+              number: 1,
+              ustadName: 'Ustad Hamza',
+              specialty: 'Taper Fades & Modern Crops',
+              avatar: USTAD_AVATARS[2],
+              currentCustomer: { tokenNumber: 17, name: 'Usama Tariq', service: 'Taper Fade', remainingMins: 22, source: 'APP' },
+              queue: [
+                { tokenNumber: 18, name: 'Shoaib Ahmed', phone: '0300-9128374', service: 'Beard Trim & Lineup', durationMins: 20, pricePkr: 400, source: 'APP' }
+              ]
+            },
+            {
+              id: 'c-perf-2',
+              number: 2,
+              ustadName: 'Ustad Adeel',
+              specialty: 'Keratin Wash & Scissor Cuts',
+              avatar: USTAD_AVATARS[1],
+              currentCustomer: { tokenNumber: 16, name: 'Walk-in (Hassan)', service: 'Keratin Protein Wash', remainingMins: 24, source: 'WALK-IN' },
+              queue: []
+            },
+            {
+              id: 'c-perf-3',
+              number: 3,
+              ustadName: 'Ustad Farhan',
+              specialty: 'Skin Fades & Beard Sculpt',
+              avatar: USTAD_AVATARS[0],
+              currentCustomer: { tokenNumber: 15, name: 'Daniyal Khan', service: 'Taper Fade', remainingMins: 22, source: 'APP' },
+              queue: []
+            }
+          ]
+        },
+        {
+          id: 'shop-studio99-jauhar',
+          name: 'Studio 99 Grooming',
+          area: 'Gulistan-e-Johar',
+          landmark: 'Block 15, Near Rab Medical, Jauhar',
+          rating: 4.8,
+          reviewCount: 318,
+          featured: false,
+          photo: BARBER_PHOTOS[5],
+          mapCoords: { x: 84, y: 36 },
+          nextToken: 9,
+          completedToday: 26,
+          services: [
+            { id: 's1', category: 'Haircuts', name: 'Executive Cut', durationMins: 35, pricePkr: 950, desc: 'Bespoke executive haircut, shampoo wash & blowdry.' },
+            { id: 's2', category: 'Beard & Khat', name: 'Hot Towel Shave', durationMins: 25, pricePkr: 500, desc: 'Double hot towel lather shave with cooling balm.' },
+            { id: 's3', category: 'Champi & Skin', name: 'Herbal Scrub & Steam', durationMins: 25, pricePkr: 850, desc: 'Refreshing facial scrub & blackhead steam.' }
+          ],
+          chairs: [
+            {
+              id: 'c-s99-1',
+              number: 1,
+              ustadName: 'Ustad Rehan',
+              specialty: 'Executive Scissor Styling',
+              avatar: USTAD_AVATARS[3],
+              currentCustomer: { tokenNumber: 8, name: 'Waleed Anwar', service: 'Executive Cut', remainingMins: 15, source: 'APP' },
+              queue: []
+            },
+            {
+              id: 'c-s99-2',
+              number: 2,
+              ustadName: 'Ustad Junaid',
+              specialty: 'Hot Towel Shaves & Fades',
+              avatar: USTAD_AVATARS[0],
+              currentCustomer: { tokenNumber: 7, name: 'Walk-in (Noman)', service: 'Hot Towel Shave', remainingMins: 16, source: 'WALK-IN' },
+              queue: []
+            }
+          ]
+        },
+        {
+          id: 'shop-almadina-naz2',
+          name: 'Al-Madina Hair Dressers',
+          area: 'Nazimabad',
+          landmark: 'Nazimabad No. 2, Near Board Office',
+          rating: 4.7,
+          reviewCount: 410,
+          featured: false,
+          photo: BARBER_PHOTOS[6],
+          mapCoords: { x: 39, y: 39 },
+          nextToken: 25,
+          completedToday: 49,
+          services: [
+            { id: 's1', category: 'Haircuts', name: 'Neighborhood Haircut', durationMins: 20, pricePkr: 350, desc: 'Fast, clean everyday cut with razor neck finish.' },
+            { id: 's2', category: 'Beard & Khat', name: 'Express Khat', durationMins: 15, pricePkr: 200, desc: 'Clean straight-razor beard lineup.' },
+            { id: 's3', category: 'Champi & Skin', name: 'Classic Oil Champi', durationMins: 15, pricePkr: 250, desc: 'Quick 15-min relaxing head massage.' }
+          ],
+          chairs: [
+            {
+              id: 'c-mad-1',
+              number: 1,
+              ustadName: 'Ustad Saleem',
+              specialty: 'Fast Everyday Cuts & Khat',
+              avatar: USTAD_AVATARS[1],
+              currentCustomer: null,
+              queue: []
+            },
+            {
+              id: 'c-mad-2',
+              number: 2,
+              ustadName: 'Ustad Majid',
+              specialty: 'Classic Cuts & Oil Champi',
+              avatar: USTAD_AVATARS[2],
+              currentCustomer: { tokenNumber: 24, name: 'Walk-in (Rizwan)', service: 'Neighborhood Haircut', remainingMins: 11, source: 'WALK-IN' },
+              queue: []
+            },
+            {
+              id: 'c-mad-3',
+              number: 3,
+              ustadName: 'Ustad Qasim',
+              specialty: 'Kids Cuts & Razor Khat',
+              avatar: USTAD_AVATARS[3],
+              currentCustomer: null,
+              queue: []
+            }
+          ]
+        },
+        {
+          id: 'shop-blade-brass-dha',
+          name: 'Blade & Brass Barber Club',
+          area: 'DHA / Clifton',
+          landmark: 'Bukhari Commercial, Lane 6, DHA Phase 6',
+          rating: 5.0,
+          reviewCount: 912,
+          featured: true,
+          photo: BARBER_PHOTOS[7],
+          mapCoords: { x: 37, y: 82 },
+          nextToken: 15,
+          completedToday: 36,
+          services: [
+            { id: 's1', category: 'Haircuts', name: 'Signature Skin Fade', durationMins: 45, pricePkr: 1600, desc: 'Master barber fade, espresso/kahwa service, wash & styling.' },
+            { id: 's2', category: 'Beard & Khat', name: 'Beard Architecture', durationMins: 30, pricePkr: 900, desc: 'Hot towel compression, beard sculpting & essential oil finish.' },
+            { id: 's3', category: 'Combos', name: 'The Bukhari Ritual', durationMins: 70, pricePkr: 2300, desc: 'Signature Fade + Beard Architecture + Charcoal Eye & Face Care.' }
+          ],
+          chairs: [
+            {
+              id: 'c-dha-1',
+              number: 1,
+              ustadName: 'Ustad Zeeshan',
+              specialty: 'Master Skin Fades & Editorial Crops',
+              avatar: USTAD_AVATARS[0],
+              currentCustomer: { tokenNumber: 13, name: 'Shayan Mir', service: 'Signature Skin Fade', remainingMins: 25, source: 'APP' },
+              queue: [
+                { tokenNumber: 14, name: 'Raza Habib', phone: '0300-8291002', service: 'Beard Architecture', durationMins: 30, pricePkr: 900, source: 'APP' }
+              ]
+            },
+            {
+              id: 'c-dha-2',
+              number: 2,
+              ustadName: 'Ustad Faraz',
+              specialty: 'Beard Architecture & Hot Shaves',
+              avatar: USTAD_AVATARS[3],
+              currentCustomer: { tokenNumber: 12, name: 'Walk-in (Ali)', service: 'Beard Architecture', remainingMins: 26, source: 'WALK-IN' },
+              queue: []
+            },
+            {
+              id: 'c-dha-3',
+              number: 3,
+              ustadName: 'Ustad Saad',
+              specialty: 'Scissor Work & Blowdry',
+              avatar: USTAD_AVATARS[1],
+              currentCustomer: { tokenNumber: 11, name: 'Talha Qureshi', service: 'Signature Skin Fade', remainingMins: 28, source: 'APP' },
+              queue: []
+            },
+            {
+              id: 'c-dha-4',
+              number: 4,
+              ustadName: 'Ustad Hamza K.',
+              specialty: 'Fades & Groom Packages',
+              avatar: USTAD_AVATARS[2],
+              currentCustomer: { tokenNumber: 10, name: 'Walk-in (Umar)', service: 'Signature Skin Fade', remainingMins: 30, source: 'WALK-IN' },
+              queue: []
+            }
+          ]
+        }
+      ];
+    }
+
+    function getDefaultState() {
+      const shops = getSeedShops();
+      return {
+        activeView: 'explore', // 'explore' | 'split' | 'counter'
+        areaFilter: 'All Karachi',
+        searchQuery: '',
+        sortPreference: 'wait', // 'wait' | 'free' | 'price' | 'rating'
+        under800Only: false,
+        activeShopId: shops[0].id,
+        selectedCategoryTab: 'All',
+        selectedChairId: 'any',
+        selectedServiceIds: ['s1'],
+        customerName: '',
+        customerPhone: '',
+        counterShopId: shops[0].id,
+        totalQueuedToday: 1428,
+        userToken: null,
+        shops
+      };
+    }
+
+    let appState = loadState();
+
+    // Onboarding Wizard Transient State (Mangomint 4-step flow)
+    let wizardState = {
+      step: 1,
+      offeredCategories: ['Haircuts & Fades', 'Khat & Beard'],
+      shopName: '',
+      area: 'Nazimabad',
+      landmark: '',
+      chairCount: 2,
+      ustadNames: ['Ustad Naeem', 'Ustad Imran', 'Ustad Sajid', 'Ustad Rizwan', 'Ustad Bilal', 'Ustad Kamran'],
+      priceHaircut: 500,
+      priceKhat: 250,
+      priceChampi: 350
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && Array.isArray(parsed.shops) && parsed.shops.length > 0) {
+            return parsed;
+          }
+        }
+      } catch (e) {
+        console.warn('Could not load saved state.');
+      }
+      return getDefaultState();
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        console.warn('Could not save state.');
+      }
+    }
+
+    function resetDemoState() {
+      localStorage.removeItem(STORAGE_KEY);
+      appState = getDefaultState();
+      saveState();
+      closeShopDrawer();
+      closeMyTokenModal();
+      renderAll();
+      showToast('Demo Reset', 'Restored all 8 Karachi barbershops and live chair queues.', 'neutral');
+    }
+
+    // -----------------------------------------------------------------------
+    // QUEUE & SHOP HELPERS
+    // -----------------------------------------------------------------------
+    function getShopById(id) {
+      return appState.shops.find(s => s.id === id) || appState.shops[0];
+    }
+
+    function getChairWaitMins(chair) {
+      let mins = chair.currentCustomer ? chair.currentCustomer.remainingMins : 0;
+      for (const item of chair.queue) {
+        mins += item.durationMins;
+      }
+      return mins;
+    }
+
+    function getShopFastestChair(shop) {
+      return shop.chairs.reduce((best, chair) => {
+        return getChairWaitMins(chair) < getChairWaitMins(best) ? chair : best;
+      }, shop.chairs[0]);
+    }
+
+    function getShopMinWait(shop) {
+      return getChairWaitMins(getShopFastestChair(shop));
+    }
+
+    function getShopMinPrice(shop) {
+      if (!shop.services || shop.services.length === 0) return 400;
+      return Math.min(...shop.services.map(s => s.pricePkr));
+    }
+
+    function formatPKR(amount) {
+      return 'Rs. ' + Number(amount).toLocaleString('en-PK');
+    }
+
+    function getUserTokenProgress() {
+      if (!appState.userToken) return null;
+      const t = appState.userToken;
+      const shop = getShopById(t.shopId);
+      const chair = shop.chairs.find(c => c.id === t.chairId) || shop.chairs[0];
+
+      let ahead = 0;
+      let estWait = 0;
+      if (t.status === 'waiting') {
+        if (chair.currentCustomer && chair.currentCustomer.tokenNumber !== t.tokenNumber) {
+          ahead += 1;
+          estWait += chair.currentCustomer.remainingMins;
+        }
+        for (const q of chair.queue) {
+          if (q.tokenNumber === t.tokenNumber) break;
+          ahead += 1;
+          estWait += q.durationMins;
+        }
+      }
+
+      return { token: t, shop, chair, ahead, estWait };
+    }
+
+    // -----------------------------------------------------------------------
+    // TOAST NOTIFICATIONS
+    // -----------------------------------------------------------------------
+    function showToast(title, message, tone = 'neutral') {
+      const container = document.getElementById('toast-container');
+      const el = document.createElement('div');
+      el.className = 'pointer-events-auto bg-white border border-line rounded-2xl p-3.5 shadow-[0_12px_32px_rgba(17,17,19,0.12)] flex items-start gap-3 transition-all duration-300';
+
+      let dotClass = 'bg-indigo-brand';
+      let badgeText = 'QATAAR LIVE';
+      if (tone === 'green') {
+        dotClass = 'bg-emerald-live';
+        badgeText = 'CHAIR READY';
+      } else if (tone === 'amber') {
+        dotClass = 'bg-amber-500';
+        badgeText = 'QUEUE ALERT';
+      }
+
+      el.innerHTML = `
+        <span class="w-2.5 h-2.5 rounded-full ${dotClass} mt-1.5 shrink-0"></span>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between gap-2">
+            <span class="font-mono text-[10px] font-bold tracking-wider uppercase text-slate">${badgeText}</span>
+            <button type="button" onclick="this.closest('.pointer-events-auto').remove()" class="text-slate hover:text-ink text-xs">✕</button>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-ink mt-0.5">${title}</div>
+          <div class="text-xs text-slate mt-0.5 leading-relaxed">${message}</div>
+        </div>
+      `;
+      container.appendChild(el);
+      setTimeout(() => {
+        if (el.parentElement) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(-6px)';
+          setTimeout(() => el.remove(), 260);
+        }
+      }, 4800);
+    }
+
+    // -----------------------------------------------------------------------
+    // NAVIGATION & FILTER CONTROLS
+    // -----------------------------------------------------------------------
+    function switchView(view) {
+      appState.activeView = view;
+      saveState();
+      renderAll();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setAreaFilter(area) {
+      appState.areaFilter = area;
+      saveState();
+      renderAll();
+    }
+
+    function handleSearchChange(val) {
+      appState.searchQuery = val;
+      const deskIn = document.getElementById('desktop-search-input');
+      const mobIn = document.getElementById('mobile-hero-search');
+      if (deskIn && deskIn.value !== val) deskIn.value = val;
+      if (mobIn && mobIn.value !== val) mobIn.value = val;
+      renderExploreVenues();
+      renderSplitView();
+    }
+
+    function setSortPreference(pref) {
+      appState.sortPreference = pref;
+      saveState();
+      renderAll();
+    }
+
+    function toggleUnder800() {
+      appState.under800Only = !appState.under800Only;
+      saveState();
+      renderAll();
+    }
+
+    function scrollToDirectory() {
+      const el = document.getElementById('directory-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // -----------------------------------------------------------------------
+    // SHOP SERVICE & CHAIR DRAWER (QUICK BOOK OR FULL MENU)
+    // -----------------------------------------------------------------------
+    function openShopDrawer(shopId, preselectServiceId = null) {
+      const shop = getShopById(shopId);
+      appState.activeShopId = shop.id;
+      appState.selectedCategoryTab = 'All';
+      appState.selectedChairId = 'any';
+
+      if (preselectServiceId && shop.services.some(s => s.id === preselectServiceId)) {
+        appState.selectedServiceIds = [preselectServiceId];
+      } else if (shop.services.length > 0) {
+        appState.selectedServiceIds = [shop.services[0].id];
+      }
+
+      saveState();
+      renderShopDrawer();
+      const drawerPanel = document.getElementById('shop-drawer-panel');
+      drawerPanel.style.transform = '';
+      drawerPanel.style.transition = '';
+      document.getElementById('shop-drawer-backdrop').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      attachSwipeToDismiss(drawerPanel, closeShopDrawer);
+    }
+
+    function closeShopDrawer() {
+      const drawerPanel = document.getElementById('shop-drawer-panel');
+      if (drawerPanel) {
+        drawerPanel.style.transform = '';
+        drawerPanel.style.transition = '';
+      }
+      document.getElementById('shop-drawer-backdrop').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function setDrawerCategory(cat) {
+      appState.selectedCategoryTab = cat;
+      renderShopDrawer();
+    }
+
+    function selectDrawerChair(chairId) {
+      appState.selectedChairId = chairId;
+      renderShopDrawer();
+    }
+
+    function toggleDrawerService(serviceId) {
+      const idx = appState.selectedServiceIds.indexOf(serviceId);
+      if (idx === -1) {
+        appState.selectedServiceIds.push(serviceId);
+      } else if (appState.selectedServiceIds.length > 1) {
+        appState.selectedServiceIds.splice(idx, 1);
+      } else {
+        showToast('At Least 1 Service Required', 'Keep at least one service selected to claim a chair token.', 'neutral');
+        return;
+      }
+      renderShopDrawer();
+    }
+
+    function claimQueueToken() {
+      const shop = getShopById(appState.activeShopId);
+      const nameInput = document.getElementById('drawer-customer-name');
+      const phoneInput = document.getElementById('drawer-customer-phone');
+
+      const name = (nameInput ? nameInput.value.trim() : '') || 'Guest Bhai';
+      const phone = (phoneInput ? phoneInput.value.trim() : '') || '0300-0000000';
+
+      if (phone.replace(/\D/g, '').length < 7) {
+        showToast('Enter Mobile Number', 'Please enter a valid 03XX Pakistani number for live queue updates.', 'amber');
+        if (phoneInput) phoneInput.focus();
+        return;
+      }
+
+      appState.customerName = name;
+      appState.customerPhone = phone;
+
+      const targetChair = appState.selectedChairId === 'any'
+        ? getShopFastestChair(shop)
+        : (shop.chairs.find(c => c.id === appState.selectedChairId) || getShopFastestChair(shop));
+
+      const tokenNumber = shop.nextToken;
+      shop.nextToken += 1;
+      appState.totalQueuedToday += 1;
+
+      const selectedServices = shop.services.filter(s => appState.selectedServiceIds.includes(s.id));
+      const totalPkr = selectedServices.reduce((sum, s) => sum + s.pricePkr, 0);
+      const totalMins = selectedServices.reduce((sum, s) => sum + s.durationMins, 0);
+      const serviceNames = selectedServices.map(s => s.name).join(' + ');
+      const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+      if (!targetChair.currentCustomer && targetChair.queue.length === 0) {
+        targetChair.currentCustomer = {
+          tokenNumber,
+          name: `${name} (You)`,
+          service: serviceNames,
+          remainingMins: totalMins,
+          source: 'APP',
+          isUser: true
+        };
+        appState.userToken = {
+          tokenNumber,
+          shopId: shop.id,
+          shopName: shop.name,
+          shopArea: shop.area,
+          shopLandmark: shop.landmark,
+          chairId: targetChair.id,
+          customerName: name,
+          customerPhone: phone,
+          services: selectedServices,
+          totalPkr,
+          totalMins,
+          bookedAt: timeStr,
+          status: 'in_chair'
+        };
+        showToast(
+          `Chair Ready at ${shop.name}!`,
+          `Token #QTR-${tokenNumber} • Chair 0${targetChair.number} (${targetChair.ustadName}) is open right now.`,
+          'green'
+        );
+      } else {
+        targetChair.queue.push({
+          tokenNumber,
+          name: `${name} (You)`,
+          phone,
+          service: serviceNames,
+          durationMins: totalMins,
+          pricePkr: totalPkr,
+          source: 'APP',
+          isUser: true
+        });
+        appState.userToken = {
+          tokenNumber,
+          shopId: shop.id,
+          shopName: shop.name,
+          shopArea: shop.area,
+          shopLandmark: shop.landmark,
+          chairId: targetChair.id,
+          customerName: name,
+          customerPhone: phone,
+          services: selectedServices,
+          totalPkr,
+          totalMins,
+          bookedAt: timeStr,
+          status: 'waiting'
+        };
+
+        const ahead = (targetChair.currentCustomer ? 1 : 0) + (targetChair.queue.length - 1);
+        showToast(
+          `Token #QTR-${tokenNumber} Claimed!`,
+          `${shop.name} (${shop.area}) • ${ahead} ahead on Chair 0${targetChair.number}.`,
+          ahead === 1 ? 'amber' : 'neutral'
+        );
+      }
+
+      saveState();
+      closeShopDrawer();
+      renderAll();
+      openMyTokenModal();
+    }
+
+    // -----------------------------------------------------------------------
+    // REAL-TIME QUEUE ADVANCEMENT & TRAFFIC BUFFER
+    // -----------------------------------------------------------------------
+    function advanceChairQueue(shopId, chairId) {
+      const shop = getShopById(shopId);
+      const chair = shop.chairs.find(c => c.id === chairId);
+      if (!chair) return;
+
+      const finished = chair.currentCustomer;
+      if (finished) {
+        shop.completedToday = (shop.completedToday || 20) + 1;
+      }
+
+      if (chair.queue.length > 0) {
+        const nextUp = chair.queue.shift();
+        chair.currentCustomer = {
+          tokenNumber: nextUp.tokenNumber,
+          name: nextUp.name,
+          service: nextUp.service,
+          remainingMins: nextUp.durationMins,
+          source: nextUp.source,
+          isUser: !!nextUp.isUser
+        };
+      } else {
+        chair.currentCustomer = null;
+      }
+
+      // Sync active user token if affected
+      if (appState.userToken && appState.userToken.shopId === shop.id && appState.userToken.chairId === chair.id) {
+        const uNum = appState.userToken.tokenNumber;
+
+        if (finished && finished.tokenNumber === uNum) {
+          appState.userToken.status = 'done';
+          showToast(
+            `Haircut Completed (#QTR-${uNum})`,
+            `Shukriya for visiting ${shop.name}! Total paid at counter: ${formatPKR(appState.userToken.totalPkr)}.`,
+            'green'
+          );
+        } else if (chair.currentCustomer && chair.currentCustomer.tokenNumber === uNum) {
+          appState.userToken.status = 'in_chair';
+          showToast(
+            `YOUR CHAIR IS READY (#QTR-${uNum})!`,
+            `Step into Chair 0${chair.number} with ${chair.ustadName} at ${shop.name}.`,
+            'green'
+          );
+        } else if (appState.userToken.status === 'waiting') {
+          const prog = getUserTokenProgress();
+          if (prog && prog.ahead === 1) {
+            showToast(
+              `LEAVE HOME NOW — 1 Person Ahead!`,
+              `Chair 0${chair.number} at ${shop.name} just finished a cut. You're up right after #QTR-${chair.currentCustomer.tokenNumber}.`,
+              'amber'
+            );
+          } else if (prog) {
+            showToast(
+              `Live Number Updated (#QTR-${uNum})`,
+              `${shop.name} advanced the queue. ${prog.ahead} ahead (~${prog.estWait} mins).`,
+              'neutral'
+            );
+          }
+        }
+      } else {
+        const nextMsg = chair.currentCustomer
+          ? `Now serving #QTR-${chair.currentCustomer.tokenNumber} (${chair.currentCustomer.name})`
+          : `Chair 0${chair.number} is now FREE`;
+        showToast(`${shop.name} • Chair 0${chair.number} Done`, nextMsg, 'neutral');
+      }
+
+      saveState();
+      renderAll();
+    }
+
+    function stepBackOneSpot() {
+      if (!appState.userToken || appState.userToken.status !== 'waiting') return;
+      const shop = getShopById(appState.userToken.shopId);
+      const chair = shop.chairs.find(c => c.id === appState.userToken.chairId);
+      if (!chair) return;
+
+      const idx = chair.queue.findIndex(q => q.tokenNumber === appState.userToken.tokenNumber);
+      if (idx === -1 || idx >= chair.queue.length - 1) {
+        showToast('Already Last in Queue', 'Nobody is behind you on this chair yet—your spot is completely safe.', 'neutral');
+        return;
+      }
+
+      const me = chair.queue[idx];
+      const nextPerson = chair.queue[idx + 1];
+
+      const tempNum = me.tokenNumber;
+      me.tokenNumber = nextPerson.tokenNumber;
+      nextPerson.tokenNumber = tempNum;
+
+      chair.queue[idx] = nextPerson;
+      chair.queue[idx + 1] = me;
+      appState.userToken.tokenNumber = me.tokenNumber;
+
+      saveState();
+      renderAll();
+      showToast(
+        `Swapped 1 Spot → #QTR-${me.tokenNumber}`,
+        `Stuck in Karachi traffic? #QTR-${nextPerson.tokenNumber} moved ahead of you at ${shop.name}.`,
+        'amber'
+      );
+    }
+
+    function cancelOrClearUserToken() {
+      if (!appState.userToken) return;
+      const shop = getShopById(appState.userToken.shopId);
+      const chair = shop.chairs.find(c => c.id === appState.userToken.chairId);
+      if (chair && appState.userToken.status === 'waiting') {
+        chair.queue = chair.queue.filter(q => q.tokenNumber !== appState.userToken.tokenNumber);
+      }
+      appState.userToken = null;
+      saveState();
+      closeMyTokenModal();
+      renderAll();
+    }
+
+    function openMyTokenModal() {
+      if (!appState.userToken) {
+        showToast('No Active Token Yet', 'Pick any Karachi barbershop below to claim a live queue number from home.', 'neutral');
+        scrollToDirectory();
+        return;
+      }
+      renderTokenModal();
+      const tokenPanel = document.getElementById('token-modal-panel');
+      tokenPanel.style.transform = '';
+      tokenPanel.style.transition = '';
+      document.getElementById('token-modal-backdrop').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      attachSwipeToDismiss(tokenPanel, closeMyTokenModal);
+    }
+
+    function closeMyTokenModal() {
+      const tokenPanel = document.getElementById('token-modal-panel');
+      if (tokenPanel) {
+        tokenPanel.style.transform = '';
+        tokenPanel.style.transition = '';
+      }
+      document.getElementById('token-modal-backdrop').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // -----------------------------------------------------------------------
+    // MERCHANT SHOP COUNTER ACTIONS
+    // -----------------------------------------------------------------------
+    function selectCounterShop(shopId) {
+      appState.counterShopId = shopId;
+      saveState();
+      renderCounterView();
+    }
+
+    function addCounterWalkIn(shopId, chairId, kind) {
+      const shop = getShopById(shopId);
+      const chair = shop.chairs.find(c => c.id === chairId);
+      if (!chair) return;
+
+      const tokenNumber = shop.nextToken;
+      shop.nextToken += 1;
+
+      const chosenService = kind === 'khat'
+        ? (shop.services.find(s => s.category === 'Beard & Khat') || shop.services[0])
+        : shop.services[0];
+
+      if (!chair.currentCustomer && chair.queue.length === 0) {
+        chair.currentCustomer = {
+          tokenNumber,
+          name: `Walk-in #${tokenNumber}`,
+          service: chosenService.name,
+          remainingMins: chosenService.durationMins,
+          source: 'WALK-IN'
+        };
+      } else {
+        chair.queue.push({
+          tokenNumber,
+          name: `Walk-in #${tokenNumber}`,
+          phone: 'Walk-in',
+          service: chosenService.name,
+          durationMins: chosenService.durationMins,
+          pricePkr: chosenService.pricePkr,
+          source: 'WALK-IN'
+        });
+      }
+
+      saveState();
+      renderAll();
+      showToast(
+        `Walk-in #QTR-${tokenNumber} Added`,
+        `${chosenService.name} queued on Chair 0${chair.number} (${chair.ustadName}).`,
+        'neutral'
+      );
+    }
+
+    // -----------------------------------------------------------------------
+    // MANGOMINT-INSPIRED 4-STEP BARBERSHOP REGISTRATION WIZARD
+    // -----------------------------------------------------------------------
+    function openOnboardingWizard() {
+      wizardState.step = 1;
+      renderOnboardingWizard();
+      const wizPanel = document.getElementById('onboarding-wizard-panel');
+      if (wizPanel) {
+        wizPanel.style.transform = '';
+        wizPanel.style.transition = '';
+      }
+      document.getElementById('onboarding-modal-backdrop').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      attachSwipeToDismiss(wizPanel, closeOnboardingWizard);
+    }
+
+    function closeOnboardingWizard() {
+      const wizPanel = document.getElementById('onboarding-wizard-panel');
+      if (wizPanel) {
+        wizPanel.style.transform = '';
+        wizPanel.style.transition = '';
+      }
+      document.getElementById('onboarding-modal-backdrop').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // -----------------------------------------------------------------------
+    // SWIPE-TO-DISMISS TOUCH GESTURE ENGINE FOR MOBILE BOTTOM SHEETS
+    // -----------------------------------------------------------------------
+    function attachSwipeToDismiss(panelEl, onDismiss) {
+      if (!panelEl) return;
+      const handleEl = panelEl.querySelector('[data-sheet-handle]');
+      if (!handleEl || handleEl.dataset.swipeBound === '1') return;
+      handleEl.dataset.swipeBound = '1';
+
+      let startY = 0;
+      let currentDeltaY = 0;
+      let dragging = false;
+
+      handleEl.addEventListener('touchstart', (e) => {
+        if (!e.touches || e.touches.length === 0) return;
+        startY = e.touches[0].clientY;
+        currentDeltaY = 0;
+        dragging = true;
+        panelEl.style.transition = 'none';
+      }, { passive: true });
+
+      handleEl.addEventListener('touchmove', (e) => {
+        if (!dragging || !e.touches || e.touches.length === 0) return;
+        const deltaY = e.touches[0].clientY - startY;
+        if (deltaY > 0) {
+          currentDeltaY = deltaY;
+          panelEl.style.transform = `translateY(${deltaY}px)`;
+        }
+      }, { passive: true });
+
+      const finishSwipe = () => {
+        if (!dragging) return;
+        dragging = false;
+        panelEl.style.transition = 'transform 0.22s cubic-bezier(0.16, 1, 0.3, 1)';
+        if (currentDeltaY > 95) {
+          panelEl.style.transform = 'translateY(100%)';
+          setTimeout(() => {
+            onDismiss();
+            panelEl.style.transform = '';
+            panelEl.style.transition = '';
+          }, 210);
+        } else {
+          panelEl.style.transform = 'translateY(0)';
+        }
+      };
+
+      handleEl.addEventListener('touchend', finishSwipe, { passive: true });
+      handleEl.addEventListener('touchcancel', finishSwipe, { passive: true });
+    }
+
+    function closeOnboardingWizard() {
+      document.getElementById('onboarding-modal-backdrop').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function toggleWizardCategory(cat) {
+      const idx = wizardState.offeredCategories.indexOf(cat);
+      if (idx === -1) {
+        wizardState.offeredCategories.push(cat);
+      } else if (wizardState.offeredCategories.length > 1) {
+        wizardState.offeredCategories.splice(idx, 1);
+      }
+      renderOnboardingWizard();
+    }
+
+    function wizardNextStep() {
+      if (wizardState.step === 2) {
+        const nameEl = document.getElementById('wiz-shop-name');
+        const areaEl = document.getElementById('wiz-area');
+        const landEl = document.getElementById('wiz-landmark');
+        if (!nameEl.value.trim() || !landEl.value.trim()) {
+          showToast('Shop Details Required', 'Enter your barbershop name and Karachi landmark.', 'amber');
+          return;
+        }
+        wizardState.shopName = nameEl.value.trim();
+        wizardState.area = areaEl.value;
+        wizardState.landmark = landEl.value.trim();
+      } else if (wizardState.step === 3) {
+        for (let i = 0; i < wizardState.chairCount; i++) {
+          const uEl = document.getElementById(`wiz-ustad-${i}`);
+          if (uEl && uEl.value.trim()) {
+            wizardState.ustadNames[i] = uEl.value.trim();
+          }
+        }
+      }
+
+      if (wizardState.step < 4) {
+        wizardState.step += 1;
+        renderOnboardingWizard();
+      } else {
+        completeShopRegistration();
+      }
+    }
+
+    function wizardPrevStep() {
+      if (wizardState.step > 1) {
+        wizardState.step -= 1;
+        renderOnboardingWizard();
+      }
+    }
+
+    function completeShopRegistration() {
+      const pCut = parseInt(document.getElementById('wiz-price-cut')?.value, 10) || 500;
+      const pKhat = parseInt(document.getElementById('wiz-price-khat')?.value, 10) || 250;
+      const pChampi = parseInt(document.getElementById('wiz-price-champi')?.value, 10) || 350;
+
+      const areaCoords = {
+        'Nazimabad': { x: 35, y: 36 },
+        'Bahadurabad': { x: 58, y: 52 },
+        'North Nazimabad': { x: 39, y: 19 },
+        'Hyderi': { x: 50, y: 24 },
+        'Gulistan-e-Johar': { x: 80, y: 40 },
+        'DHA / Clifton': { x: 40, y: 78 }
+      };
+
+      const newShopId = 'shop-' + Date.now();
+      const chairs = [];
+      for (let i = 0; i < wizardState.chairCount; i++) {
+        chairs.push({
+          id: `${newShopId}-c${i + 1}`,
+          number: i + 1,
+          ustadName: wizardState.ustadNames[i] || `Ustad ${i + 1}`,
+          specialty: wizardState.offeredCategories.slice(0, 2).join(' & '),
+          avatar: USTAD_AVATARS[i % USTAD_AVATARS.length],
+          currentCustomer: null,
+          queue: []
+        });
+      }
+
+      const newShop = {
+        id: newShopId,
+        name: wizardState.shopName,
+        area: wizardState.area,
+        landmark: wizardState.landmark,
+        rating: 5.0,
+        reviewCount: 1,
+        featured: true,
+        photo: BARBER_PHOTOS[appState.shops.length % BARBER_PHOTOS.length],
+        mapCoords: areaCoords[wizardState.area] || { x: 50, y: 50 },
+        nextToken: 101,
+        completedToday: 0,
+        services: [
+          { id: 's1', category: 'Haircuts', name: 'Signature Haircut', durationMins: 25, pricePkr: pCut, desc: 'Tailored scissor & clipper cut with fresh razor neck lineup.' },
+          { id: 's2', category: 'Beard & Khat', name: 'Beard Trim & Khat', durationMins: 15, pricePkr: pKhat, desc: 'Crisp straight-razor khat & beard styling.' },
+          { id: 's3', category: 'Champi & Skin', name: 'Desi Oil Champi', durationMins: 20, pricePkr: pChampi, desc: 'Relaxing head & shoulder oil massage.' }
+        ],
+        chairs
+      };
+
+      appState.shops.unshift(newShop);
+      appState.counterShopId = newShop.id;
+      appState.activeShopId = newShop.id;
+      appState.areaFilter = 'All Karachi';
+      appState.activeView = 'counter';
+      saveState();
+
+      closeOnboardingWizard();
+      renderAll();
+      showToast(
+        `${newShop.name} is Now Live!`,
+        `Listed in ${newShop.area}. Your live Shop Counter is ready.`,
+        'green'
+      );
+    }
+
+    // -----------------------------------------------------------------------
+    // RENDERERS
+    // -----------------------------------------------------------------------
+    function getFilteredSortedShops() {
+      const q = appState.searchQuery.trim().toLowerCase();
+      let list = appState.shops.filter(shop => {
+        if (appState.areaFilter !== 'All Karachi' && shop.area !== appState.areaFilter) return false;
+        if (appState.under800Only && getShopMinPrice(shop) >= 800) return false;
+        if (appState.sortPreference === 'free' && getShopMinWait(shop) > 0) return false;
+        if (!q) return true;
+        return (
+          shop.name.toLowerCase().includes(q) ||
+          shop.area.toLowerCase().includes(q) ||
+          shop.landmark.toLowerCase().includes(q) ||
+          shop.services.some(s => s.name.toLowerCase().includes(q))
+        );
+      });
+
+      if (appState.sortPreference === 'wait' || appState.sortPreference === 'free') {
+        list.sort((a, b) => getShopMinWait(a) - getShopMinWait(b));
+      } else if (appState.sortPreference === 'price') {
+        list.sort((a, b) => getShopMinPrice(a) - getShopMinPrice(b));
+      } else if (appState.sortPreference === 'rating') {
+        list.sort((a, b) => b.rating - a.rating);
+      }
+
+      return list;
+    }
+
+    function renderFilterChipsAndSelects() {
+      const desktopArea = document.getElementById('desktop-area-select');
+      if (desktopArea) {
+        desktopArea.innerHTML = KARACHI_AREAS.map(a =>
+          `<option value="${a}" ${appState.areaFilter === a ? 'selected' : ''}>${a}</option>`
+        ).join('');
+      }
+
+      const chipsBar = document.getElementById('filter-chips-bar');
+      if (chipsBar) {
+        const areaChips = KARACHI_AREAS.map(area => {
+          const active = appState.areaFilter === area;
+          return `
+            <button type="button" onclick="setAreaFilter('${area}')"
+              class="min-h-[38px] px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap border transition ${active ? 'bg-ink text-white border-ink' : 'bg-white text-ink border-line hover:border-ink'}">
+              ${area}
+            </button>
+          `;
+        }).join('');
+
+        chipsBar.innerHTML = `
+          ${areaChips}
+          <span class="h-5 w-[1px] bg-line shrink-0 mx-1"></span>
+          <button type="button" onclick="setSortPreference('${appState.sortPreference === 'free' ? 'wait' : 'free'}')"
+            class="min-h-[38px] px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap border transition inline-flex items-center gap-1.5 ${appState.sortPreference === 'free' ? 'bg-emerald-soft text-emerald-dark border-emerald-live' : 'bg-white text-ink border-line hover:border-ink'}">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-live"></span>
+            <span>Free Chair Now</span>
+          </button>
+          <button type="button" onclick="toggleUnder800()"
+            class="min-h-[38px] px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap border transition ${appState.under800Only ? 'bg-indigo-soft text-indigo-brand border-indigo-brand' : 'bg-white text-ink border-line hover:border-ink'}">
+            Under Rs. 800
+          </button>
+        `;
+      }
+
+      // Neighborhood directory links at bottom of explore page
+      const dirLinks = document.getElementById('neighborhood-directory-links');
+      if (dirLinks) {
+        dirLinks.innerHTML = KARACHI_AREAS.filter(a => a !== 'All Karachi').map(area => {
+          const count = appState.shops.filter(s => s.area === area).length;
+          return `
+            <button type="button" onclick="setAreaFilter('${area}'); scrollToDirectory();"
+              class="text-left p-3.5 rounded-2xl border border-line hover:border-ink bg-pearl/50 hover:bg-white transition">
+              <div class="font-bold text-xs sm:text-sm text-ink">${area}</div>
+              <div class="text-[11px] text-slate mt-0.5">${count} live ${count === 1 ? 'shop' : 'shops'} →</div>
+            </button>
+          `;
+        }).join('');
+      }
+    }
+
+    function renderActiveTokenBanner() {
+      const section = document.getElementById('explore-active-token-section');
+      const container = document.getElementById('explore-active-token-container');
+      const headerPill = document.getElementById('header-token-pill');
+      const headerPillText = document.getElementById('header-token-pill-text');
+      const mobDot = document.getElementById('mob-token-dot');
+      const mobLabel = document.getElementById('mob-tab-token-label');
+      const floatingPill = document.getElementById('floating-mobile-token-pill');
+      const floatingPillText = document.getElementById('floating-token-pill-text');
+
+      const prog = getUserTokenProgress();
+      if (!prog) {
+        section.classList.add('hidden');
+        headerPill.classList.add('hidden');
+        headerPill.classList.remove('inline-flex');
+        if (floatingPill) floatingPill.classList.add('hidden');
+        if (mobDot) mobDot.classList.add('hidden');
+        if (mobLabel) mobLabel.textContent = 'My Token';
+        return;
+      }
+
+      const { token, shop, chair, ahead, estWait } = prog;
+      headerPill.classList.remove('hidden');
+      headerPill.classList.add('inline-flex');
+      headerPillText.textContent = token.status === 'in_chair'
+        ? `#KHI-${token.tokenNumber} • YOUR TURN`
+        : `#KHI-${token.tokenNumber} • ${ahead} ahead`;
+
+      if (floatingPill && floatingPillText) {
+        floatingPill.classList.remove('hidden');
+        floatingPillText.textContent = token.status === 'in_chair'
+          ? `Token #KHI-${token.tokenNumber} • YOUR CHAIR IS READY`
+          : token.status === 'done'
+            ? `Token #KHI-${token.tokenNumber} • Haircut Completed`
+            : `Token #KHI-${token.tokenNumber} • ${ahead} ahead • ~${estWait}m wait`;
+      }
+
+      if (mobDot) mobDot.classList.remove('hidden');
+      if (mobLabel) mobLabel.textContent = `#KHI-${token.tokenNumber}`;
+
+      section.classList.remove('hidden');
+      container.innerHTML = `
+        <div class="bg-ink text-white rounded-3xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg">
+          <div class="flex items-center gap-3.5">
+            <div class="px-3.5 py-2.5 rounded-2xl bg-white/10 border border-white/15 font-mono font-bold text-lg sm:text-xl text-white tabular-nums shrink-0">
+              #QTR-${token.tokenNumber}
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-live animate-live-pulse"></span>
+                <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-emerald-live">
+                  ${token.status === 'in_chair' ? 'Chair Ready Now' : token.status === 'done' ? 'Cut Completed' : `Serving #QTR-${chair.currentCustomer ? chair.currentCustomer.tokenNumber : 'Open'}`}
+                </span>
+              </div>
+              <div class="font-bold text-base sm:text-lg text-white mt-0.5">
+                ${shop.name} <span class="text-xs font-normal text-white/70">(${shop.area})</span>
+              </div>
+              <div class="text-xs text-white/75 mt-0.5">
+                Chair 0${chair.number} (${chair.ustadName}) • ${token.status === 'waiting' ? `${ahead} ahead (~${estWait} min wait)` : 'Step in now'}
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            ${token.status === 'waiting' ? `
+              <button type="button" onclick="advanceChairQueue('${shop.id}', '${chair.id}')"
+                class="min-h-[42px] px-3.5 py-2 rounded-full bg-emerald-live hover:bg-emerald-dark text-ink hover:text-white text-xs font-bold transition">
+                ▶ Simulate Cut Done (+1)
+              </button>
+            ` : ''}
+            <button type="button" onclick="openMyTokenModal()"
+              class="min-h-[42px] px-4 py-2 rounded-full bg-white text-ink hover:bg-indigo-brand hover:text-white text-xs font-bold transition">
+              Open Live Pass →
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function buildVenueCardHTML(shop) {
+      const minWait = getShopMinWait(shop);
+      const openChairs = shop.chairs.filter(c => !c.currentCustomer && c.queue.length === 0).length;
+
+      return `
+        <article class="bg-white rounded-2xl border border-line hover:border-ink/40 transition-all overflow-hidden flex flex-col justify-between group">
+          <div>
+            <!-- Cover Photo with Carousel Indicator Dots & Live Wait Pill (Fresha Mobile Card Pattern) -->
+            <div onclick="openShopDrawer('${shop.id}')" class="relative aspect-[16/10] bg-pearl overflow-hidden cursor-pointer">
+              <img src="${shop.photo}" alt="${shop.name}"
+                onerror="this.src='https://placehold.co/800x500/111113/FFFFFF?text=${encodeURIComponent(shop.name)}'"
+                class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" />
+              <div class="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/10"></div>
+
+              <!-- Top Area & Live Wait Pill -->
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                <span class="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs text-ink text-[11px] font-bold shadow-2xs">
+                  ${shop.area}
+                </span>
+                ${minWait === 0 ? `
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-soft text-emerald-dark font-mono text-[11px] font-bold shadow-2xs">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-live animate-live-pulse"></span>
+                    Free Chair (${openChairs}/${shop.chairs.length})
+                  </span>
+                ` : `
+                  <span class="px-2.5 py-1 rounded-full bg-ink/85 backdrop-blur-xs text-white font-mono text-[11px] font-bold tabular-nums">
+                    ~${minWait} min wait
+                  </span>
+                `}
+              </div>
+
+              <!-- Fresha-style subtle bottom image dots -->
+              <div class="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-white/45"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-white/45"></span>
+              </div>
+            </div>
+
+            <!-- Shop Header Info -->
+            <div onclick="openShopDrawer('${shop.id}')" class="p-4 pb-3 cursor-pointer">
+              <div class="flex items-start justify-between gap-2">
+                <h3 class="display-tight font-extrabold text-lg text-ink group-hover:text-indigo-brand transition-colors leading-snug">
+                  ${shop.name}
+                </h3>
+                <span class="font-mono text-xs font-bold text-slate shrink-0 tabular-nums">
+                  Next #${shop.nextToken}
+                </span>
+              </div>
+
+              <div class="flex items-center gap-1.5 mt-1 text-xs">
+                <span class="font-bold text-ink tabular-nums">${shop.rating.toFixed(1)}</span>
+                <span class="text-ink tracking-tighter">★★★★★</span>
+                <span class="text-slate tabular-nums">(${shop.reviewCount})</span>
+              </div>
+
+              <p class="text-xs text-slate mt-1 truncate">${shop.landmark}</p>
+
+              ${shop.featured ? `
+                <div class="mt-2.5">
+                  <span class="inline-block px-2.5 py-0.5 rounded-md bg-indigo-soft text-indigo-brand text-[11px] font-bold">
+                    Featured • Live Queue
+                  </span>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Inline Quick-Bookable Services (Matches Fresha Mobile Venue Feed Reference!) -->
+            <div class="px-4 divide-y divide-line border-t border-line">
+              ${shop.services.slice(0, 3).map(srv => `
+                <button type="button" onclick="openShopDrawer('${shop.id}', '${srv.id}')"
+                  class="w-full py-3 flex items-center justify-between gap-3 text-left hover:bg-pearl/70 -mx-2 px-2 rounded-lg transition">
+                  <div class="min-w-0">
+                    <div class="text-xs sm:text-[13px] font-bold text-ink truncate">${srv.name}</div>
+                    <div class="text-[11px] text-slate mt-0.5 tabular-nums">${srv.durationMins} min</div>
+                  </div>
+                  <div class="text-right shrink-0">
+                    <div class="font-mono text-xs sm:text-[13px] font-bold text-ink tabular-nums">${formatPKR(srv.pricePkr)}</div>
+                    <div class="text-[10px] font-bold text-indigo-brand">Get Token →</div>
+                  </div>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Card Footer -->
+          <div class="px-4 py-3 bg-pearl/60 border-t border-line flex items-center justify-between">
+            <span class="text-[11px] font-semibold text-slate">${shop.chairs.length} Ustads on duty</span>
+            <button type="button" onclick="openShopDrawer('${shop.id}')"
+              class="text-xs font-bold text-ink hover:text-indigo-brand transition">
+              View all ${shop.services.length} services →
+            </button>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderExploreVenues() {
+      const shops = getFilteredSortedShops();
+      const titleEl = document.getElementById('directory-title');
+      const subEl = document.getElementById('directory-subtitle');
+      const statEl = document.getElementById('live-daily-cuts-stat');
+
+      if (statEl) statEl.textContent = appState.totalQueuedToday.toLocaleString('en-PK');
+      if (titleEl) {
+        titleEl.textContent = appState.areaFilter === 'All Karachi'
+          ? 'Recommended in Karachi'
+          : `Barbershops in ${appState.areaFilter}`;
+      }
+      if (subEl) {
+        subEl.textContent = `${shops.length} independent ${shops.length === 1 ? 'shop' : 'shops'} with live chair queues • Tap any service to claim a token`;
+      }
+
+      const grid = document.getElementById('venues-grid');
+      if (grid) {
+        if (shops.length === 0) {
+          grid.innerHTML = `
+            <div class="col-span-full rounded-2xl border border-line bg-pearl p-8 text-center">
+              <h3 class="font-extrabold text-lg text-ink">No matching barbershops found</h3>
+              <p class="text-xs sm:text-sm text-slate mt-1">Clear your filters or register your own barbershop in ${appState.areaFilter}.</p>
+              <div class="mt-4 flex flex-wrap justify-center gap-2">
+                <button type="button" onclick="appState.areaFilter='All Karachi'; appState.under800Only=false; appState.sortPreference='wait'; handleSearchChange('');"
+                  class="min-h-[40px] px-4 py-2 rounded-full border border-line bg-white text-xs font-bold text-ink">
+                  Reset Filters
+                </button>
+                <button type="button" onclick="openOnboardingWizard()"
+                  class="min-h-[40px] px-4 py-2 rounded-full bg-ink text-white text-xs font-bold">
+                  + List Your Shop
+                </button>
+              </div>
+            </div>
+          `;
+        } else {
+          grid.innerHTML = shops.map(shop => buildVenueCardHTML(shop)).join('');
+        }
+      }
+
+      // Render Zero-Wait & Fast Chairs Strip
+      const fastStrip = document.getElementById('fast-chairs-strip');
+      if (fastStrip) {
+        const fastest4 = [...appState.shops]
+          .sort((a, b) => getShopMinWait(a) - getShopMinWait(b))
+          .slice(0, 4);
+
+        fastStrip.innerHTML = fastest4.map(shop => {
+          const wait = getShopMinWait(shop);
+          const fastChair = getShopFastestChair(shop);
+          return `
+            <div onclick="openShopDrawer('${shop.id}')"
+              class="bg-white rounded-2xl border border-line hover:border-ink p-4 cursor-pointer transition flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[11px] font-bold text-slate">${shop.area}</span>
+                  <span class="px-2 py-0.5 rounded-full font-mono text-[11px] font-bold tabular-nums ${wait === 0 ? 'bg-emerald-soft text-emerald-dark' : 'bg-pearl text-ink'}">
+                    ${wait === 0 ? '0m • Free' : `~${wait}m`}
+                  </span>
+                </div>
+                <h4 class="font-bold text-sm text-ink mt-1.5 truncate">${shop.name}</h4>
+                <p class="text-[11px] text-slate mt-0.5 truncate">${fastChair.ustadName} • Chair 0${fastChair.number}</p>
+              </div>
+              <div class="mt-3 pt-2.5 border-t border-line flex items-center justify-between text-xs">
+                <span class="font-mono font-bold text-ink tabular-nums">From ${formatPKR(getShopMinPrice(shop))}</span>
+                <span class="font-bold text-indigo-brand">Claim →</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // RENDER SPLIT MAP & VENUE EXPLORER VIEW
+    // -----------------------------------------------------------------------
+    function renderSplitView() {
+      const pillsEl = document.getElementById('split-area-pills');
+      if (pillsEl) {
+        pillsEl.innerHTML = KARACHI_AREAS.map(area => {
+          const active = appState.areaFilter === area;
+          return `
+            <button type="button" onclick="setAreaFilter('${area}')"
+              class="min-h-[36px] px-3.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap border transition ${active ? 'bg-ink text-white border-ink' : 'bg-white text-ink border-line hover:border-ink'}">
+              ${area}
+            </button>
+          `;
+        }).join('');
+      }
+
+      const shops = getFilteredSortedShops();
+      const listEl = document.getElementById('split-venues-list');
+      if (listEl) {
+        listEl.innerHTML = shops.map(shop => buildVenueCardHTML(shop)).join('');
+      }
+
+      const pinsEl = document.getElementById('karachi-map-pins');
+      if (pinsEl) {
+        pinsEl.innerHTML = shops.map(shop => {
+          const wait = getShopMinWait(shop);
+          const minPrice = getShopMinPrice(shop);
+          const isFree = wait === 0;
+          return `
+            <button type="button" onclick="openShopDrawer('${shop.id}')"
+              style="left: ${shop.mapCoords.x}%; top: ${shop.mapCoords.y}%;"
+              class=" -translate-x-1/2 -translate-y-1/2 absolute px-2.5 py-1 rounded-full font-mono text-[11px] font-bold shadow-md border transition-transform hover:scale-110 whitespace-nowrap tabular-nums ${isFree ? 'bg-emerald-dark text-white border-emerald-live' : 'bg-ink text-white border-white/20'}">
+              Rs.${minPrice} • ${isFree ? 'Free' : `${wait}m`}
+            </button>
+          `;
+        }).join('');
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // RENDER SHOP SERVICE SELECTION & TOKEN CHECKOUT DRAWER
+    // -----------------------------------------------------------------------
+    function renderShopDrawer() {
+      const shop = getShopById(appState.activeShopId);
+      const panel = document.getElementById('shop-drawer-panel');
+      if (!panel) return;
+
+      const categories = ['All', ...new Set(shop.services.map(s => s.category))];
+      const visibleServices = appState.selectedCategoryTab === 'All'
+        ? shop.services
+        : shop.services.filter(s => s.category === appState.selectedCategoryTab);
+
+      const targetChair = appState.selectedChairId === 'any'
+        ? getShopFastestChair(shop)
+        : (shop.chairs.find(c => c.id === appState.selectedChairId) || getShopFastestChair(shop));
+      const estWait = getChairWaitMins(targetChair);
+
+      const selectedServices = shop.services.filter(s => appState.selectedServiceIds.includes(s.id));
+      const totalPkr = selectedServices.reduce((sum, s) => sum + s.pricePkr, 0);
+      const totalMins = selectedServices.reduce((sum, s) => sum + s.durationMins, 0);
+
+      panel.innerHTML = `
+        <!-- Mobile Swipe-to-Dismiss Drag Handle -->
+        <div data-sheet-handle="shop" class="lg:hidden pt-2.5 pb-1 flex justify-center bg-white shrink-0 cursor-grab active:cursor-grabbing touch-none">
+          <span class="w-10 h-1.5 rounded-full bg-line"></span>
+        </div>
+
+        <!-- Sticky Drawer Header -->
+        <div class="px-5 py-3.5 border-b border-line flex items-center justify-between gap-3 bg-white shrink-0">
+          <div class="min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-md bg-indigo-soft text-indigo-brand text-[10px] font-bold uppercase">${shop.area}</span>
+              <span class="text-xs font-bold text-ink tabular-nums">${shop.rating.toFixed(1)} ★ (${shop.reviewCount})</span>
+            </div>
+            <h2 class="display-tight font-extrabold text-xl sm:text-2xl text-ink truncate mt-0.5">${shop.name}</h2>
+          </div>
+          <button type="button" onclick="closeShopDrawer()"
+            class="w-9 h-9 rounded-full border border-line hover:bg-pearl flex items-center justify-center text-ink text-sm font-bold shrink-0">
+            ✕
+          </button>
+        </div>
+
+        <!-- Scrollable Body: Left Services + Chairs | Right Summary Card -->
+        <div class="flex-1 overflow-y-auto p-5 grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- Left 7 Cols: Category Tabs, Itemized Services, Chair Picker -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <!-- Category Filter Pills (Matches Refero Service Selection Drawer) -->
+            <div>
+              <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+                ${categories.map(cat => {
+                  const active = appState.selectedCategoryTab === cat;
+                  return `
+                    <button type="button" onclick="setDrawerCategory('${cat}')"
+                      class="min-h-[34px] px-3.5 py-1 rounded-full text-xs font-bold whitespace-nowrap transition ${active ? 'bg-ink text-white' : 'bg-pearl text-slate hover:text-ink'}">
+                      ${cat}
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+
+              <!-- Itemized Services List with '+' / '✓' Circular Toggle Buttons -->
+              <div class="mt-3 divide-y divide-line border border-line rounded-2xl overflow-hidden">
+                ${visibleServices.map(srv => {
+                  const checked = appState.selectedServiceIds.includes(srv.id);
+                  return `
+                    <div onclick="toggleDrawerService('${srv.id}')"
+                      class="p-4 flex items-center justify-between gap-4 cursor-pointer transition ${checked ? 'bg-indigo-soft/45' : 'bg-white hover:bg-pearl/60'}">
+                      <div class="min-w-0">
+                        <div class="font-bold text-sm text-ink">${srv.name}</div>
+                        <div class="text-xs text-slate mt-0.5 tabular-nums">${srv.durationMins} mins</div>
+                        <p class="text-xs text-slate/90 mt-1 line-clamp-2">${srv.desc}</p>
+                        <div class="font-mono font-bold text-xs text-ink mt-1.5 tabular-nums">${formatPKR(srv.pricePkr)}</div>
+                      </div>
+                      <button type="button"
+                        class="w-9 h-9 rounded-full border flex items-center justify-center shrink-0 transition ${checked ? 'bg-ink border-ink text-white' : 'bg-white border-line text-ink hover:border-ink'}">
+                        ${checked
+                          ? '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>'
+                          : '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>'
+                        }
+                      </button>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+
+            <!-- Choose Your Ustad / Barber Chair -->
+            <div>
+              <h3 class="font-extrabold text-sm text-ink mb-2.5">Choose Barber Chair</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <button type="button" onclick="selectDrawerChair('any')"
+                  class="p-3 rounded-2xl border text-left transition flex items-center justify-between gap-2 ${appState.selectedChairId === 'any' ? 'border-ink bg-pearl ring-1 ring-ink' : 'border-line bg-white hover:border-ink/40'}">
+                  <div>
+                    <div class="font-bold text-xs text-ink">First Free Chair</div>
+                    <div class="text-[11px] text-slate mt-0.5">Chair 0${getShopFastestChair(shop).number} (${getShopFastestChair(shop).ustadName})</div>
+                  </div>
+                  <span class="font-mono text-[11px] font-bold px-2 py-0.5 rounded-full ${getShopMinWait(shop) === 0 ? 'bg-emerald-soft text-emerald-dark' : 'bg-white text-ink border border-line'} tabular-nums">
+                    ${getShopMinWait(shop) === 0 ? '0m' : `~${getShopMinWait(shop)}m`}
+                  </span>
+                </button>
+
+                ${shop.chairs.map(chair => {
+                  const w = getChairWaitMins(chair);
+                  const active = appState.selectedChairId === chair.id;
+                  return `
+                    <button type="button" onclick="selectDrawerChair('${chair.id}')"
+                      class="p-3 rounded-2xl border text-left transition flex items-center justify-between gap-2 ${active ? 'border-ink bg-pearl ring-1 ring-ink' : 'border-line bg-white hover:border-ink/40'}">
+                      <div class="flex items-center gap-2.5 min-w-0">
+                        <img src="${chair.avatar}" alt="${chair.ustadName}"
+                          onerror="this.src='https://placehold.co/80x80/111113/FFFFFF?text=U'"
+                          class="w-8 h-8 rounded-full object-cover shrink-0" />
+                        <div class="min-w-0">
+                          <div class="font-bold text-xs text-ink truncate">${chair.ustadName}</div>
+                          <div class="text-[11px] text-slate truncate">Chair 0${chair.number} • ${chair.currentCustomer ? `#QTR-${chair.currentCustomer.tokenNumber}` : 'Free'}</div>
+                        </div>
+                      </div>
+                      <span class="font-mono text-[11px] font-bold px-2 py-0.5 rounded-full shrink-0 ${w === 0 ? 'bg-emerald-soft text-emerald-dark' : 'bg-white text-ink border border-line'} tabular-nums">
+                        ${w === 0 ? 'Free' : `~${w}m`}
+                      </span>
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right 5 Cols: Summary Card & Token Claim Form (Matches Refero Right Summary Card) -->
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl border border-line bg-pearl/60 p-4 sm:p-5 space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-line">
+                <div>
+                  <div class="text-xs font-bold text-ink">Queue Token Summary</div>
+                  <div class="text-[11px] text-slate mt-0.5">${shop.landmark}</div>
+                </div>
+                <span class="font-mono font-extrabold text-sm px-2.5 py-1 rounded-lg bg-white border border-line text-ink tabular-nums">
+                  #QTR-${shop.nextToken}
+                </span>
+              </div>
+
+              <!-- Selected Services Breakdown -->
+              <div class="space-y-2 text-xs border-b border-line pb-3">
+                ${selectedServices.map(s => `
+                  <div class="flex items-start justify-between gap-2">
+                    <div>
+                      <div class="font-bold text-ink">${s.name}</div>
+                      <div class="text-[11px] text-slate">${s.durationMins} mins with ${targetChair.ustadName}</div>
+                    </div>
+                    <span class="font-mono font-bold text-ink tabular-nums">${formatPKR(s.pricePkr)}</span>
+                  </div>
+                `).join('')}
+              </div>
+
+              <!-- Wait & Total -->
+              <div class="flex items-center justify-between text-xs">
+                <span class="text-slate font-medium">Estimated Wait</span>
+                <span class="font-mono font-bold ${estWait === 0 ? 'text-emerald-dark' : 'text-ink'} tabular-nums">
+                  ${estWait === 0 ? '0 mins (Chair Free)' : `~${estWait} mins`}
+                </span>
+              </div>
+              <div class="flex items-center justify-between pt-1">
+                <span class="font-bold text-sm text-ink">Total (Pay at Shop)</span>
+                <span class="font-mono font-extrabold text-lg text-ink tabular-nums">${formatPKR(totalPkr)}</span>
+              </div>
+
+              <!-- Customer Inputs -->
+              <div class="space-y-2.5 pt-1">
+                <input id="drawer-customer-name" type="text" value="${appState.customerName}" placeholder="Your Name (e.g. Bilal Ahmed)"
+                  class="w-full min-h-[42px] rounded-xl border border-line bg-white px-3.5 py-2 text-xs sm:text-sm text-ink focus:outline-none focus:border-ink" />
+                <input id="drawer-customer-phone" type="tel" value="${appState.customerPhone}" placeholder="Mobile / WhatsApp (0300-8214590)"
+                  class="w-full min-h-[42px] rounded-xl border border-line bg-white px-3.5 py-2 text-xs sm:text-sm font-mono text-ink focus:outline-none focus:border-ink" />
+
+                <button type="button" onclick="claimQueueToken()"
+                  class="w-full min-h-[48px] px-5 py-3 rounded-full bg-ink hover:bg-indigo-brand text-white text-sm font-bold transition-colors shadow-sm">
+                  Claim Token #QTR-${shop.nextToken} (${totalMins}m)
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
+    // -----------------------------------------------------------------------
+    // RENDER LIVE TOKEN BOARDING PASS MODAL
+    // -----------------------------------------------------------------------
+    function renderTokenModal() {
+      const panel = document.getElementById('token-modal-panel');
+      const prog = getUserTokenProgress();
+      if (!panel || !prog) return;
+
+      const { token, shop, chair, ahead, estWait } = prog;
+      const nowServing = chair.currentCustomer ? `#QTR-${chair.currentCustomer.tokenNumber}` : 'FREE';
+
+      let stepIndex = 0;
+      if (token.status === 'done') stepIndex = 3;
+      else if (token.status === 'in_chair') stepIndex = 2;
+      else if (ahead <= 1) stepIndex = 1;
+
+      const steps = ['Queued at Home', 'Leave Home Now', 'In Chair', 'Done'];
+
+      panel.innerHTML = `
+        <!-- Mobile Swipe-to-Dismiss Drag Handle -->
+        <div data-sheet-handle="token" class="sm:hidden pt-2.5 pb-1 flex justify-center bg-pearl shrink-0 cursor-grab active:cursor-grabbing touch-none">
+          <span class="w-10 h-1.5 rounded-full bg-line"></span>
+        </div>
+
+        <div class="p-5 overflow-y-auto flex-1">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate">Live Queue Boarding Pass</span>
+            <button type="button" onclick="closeMyTokenModal()"
+              class="w-8 h-8 rounded-full bg-white border border-line flex items-center justify-center text-ink text-xs font-bold">
+              ✕
+            </button>
+          </div>
+
+          <!-- Boarding Pass Ticket -->
+          <div class="bg-white rounded-3xl border border-line overflow-hidden shadow-sm">
+            <div class="bg-ink text-white p-5">
+              <div class="flex items-center justify-between text-xs">
+                <span class="px-2.5 py-0.5 rounded-full bg-white/15 font-bold">${shop.area}</span>
+                <span class="font-mono text-white/70">${token.bookedAt}</span>
+              </div>
+              <h3 class="display-tight font-extrabold text-xl text-white mt-2.5">${shop.name}</h3>
+              <p class="text-xs text-white/70 mt-0.5">${shop.landmark}</p>
+
+              <div class="mt-5 grid grid-cols-2 gap-3 bg-white/10 rounded-2xl p-3.5 border border-white/10">
+                <div>
+                  <div class="text-[10px] uppercase tracking-wider text-white/65 font-bold">Your Token</div>
+                  <div class="font-mono font-extrabold text-2xl sm:text-3xl text-white tabular-nums mt-0.5">#QTR-${token.tokenNumber}</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-[10px] uppercase tracking-wider text-white/65 font-bold">Now Serving</div>
+                  <div class="font-mono font-extrabold text-2xl sm:text-3xl text-emerald-live tabular-nums mt-0.5">${nowServing}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Perforated Divider -->
+            <div class="relative border-b border-dashed border-line py-3 px-5 bg-white">
+              <div class="ticket-notch-left"></div>
+              <div class="ticket-notch-right"></div>
+              <div class="grid grid-cols-3 text-center">
+                <div>
+                  <div class="text-[10px] font-bold text-slate uppercase">Chair</div>
+                  <div class="font-mono font-bold text-xs text-ink mt-0.5">0${chair.number} • ${chair.ustadName.split(' ')[1] || chair.ustadName}</div>
+                </div>
+                <div class="border-x border-line">
+                  <div class="text-[10px] font-bold text-slate uppercase">Ahead</div>
+                  <div class="font-mono font-bold text-xs text-ink mt-0.5 tabular-nums">${token.status === 'waiting' ? `${ahead} people` : '0'}</div>
+                </div>
+                <div>
+                  <div class="text-[10px] font-bold text-slate uppercase">Est. Wait</div>
+                  <div class="font-mono font-bold text-xs text-ink mt-0.5 tabular-nums">${token.status === 'waiting' ? `~${estWait} mins` : 'Now'}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Progress Stepper + Interactive Controls -->
+            <div class="p-5 space-y-4">
+              <div class="grid grid-cols-4 gap-1.5">
+                ${steps.map((label, i) => `
+                  <div>
+                    <div class="h-1.5 rounded-full ${i <= stepIndex ? 'bg-emerald-live' : 'bg-line'}"></div>
+                    <div class="text-[10px] font-bold mt-1.5 leading-tight ${i <= stepIndex ? 'text-ink' : 'text-slate'}">${label}</div>
+                  </div>
+                `).join('')}
+              </div>
+
+              <div class="p-3 rounded-xl bg-pearl text-xs flex items-center justify-between">
+                <span class="text-slate font-medium">${token.services.map(s => s.name).join(' + ')}</span>
+                <span class="font-mono font-bold text-ink tabular-nums">${formatPKR(token.totalPkr)}</span>
+              </div>
+
+              ${token.status === 'waiting' ? `
+                <div class="space-y-2">
+                  <button type="button" onclick="advanceChairQueue('${shop.id}', '${chair.id}')"
+                    class="w-full min-h-[46px] px-4 py-2.5 rounded-full bg-emerald-live hover:bg-emerald-dark text-white text-xs font-bold transition">
+                    ▶ Simulate: Chair Cut Done (+1)
+                  </button>
+                  <button type="button" onclick="stepBackOneSpot()"
+                    class="w-full min-h-[44px] px-4 py-2.5 rounded-full border border-line bg-white hover:bg-pearl text-xs font-bold text-ink transition">
+                    Stuck in Traffic? Step Back 1 Spot
+                  </button>
+                </div>
+              ` : token.status === 'in_chair' ? `
+                <button type="button" onclick="advanceChairQueue('${shop.id}', '${chair.id}')"
+                  class="w-full min-h-[46px] px-4 py-2.5 rounded-full bg-ink hover:bg-indigo-brand text-white text-xs font-bold transition">
+                  Complete Haircut
+                </button>
+              ` : ''}
+
+              <button type="button" onclick="cancelOrClearUserToken()"
+                class="w-full min-h-[38px] text-xs font-bold text-rose-600 hover:underline">
+                ${token.status === 'waiting' ? 'Cancel Token' : 'Done & Dismiss Pass'}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // -----------------------------------------------------------------------
+    // RENDER MANGOMINT 4-STEP BARBERSHOP REGISTRATION WIZARD
+    // -----------------------------------------------------------------------
+    function renderOnboardingWizard() {
+      const body = document.getElementById('onboarding-wizard-body');
+      if (!body) return;
+
+      const s = wizardState.step;
+
+      if (s === 1) {
+        const categories = [
+          { name: 'Haircuts & Fades', icon: '✂️' },
+          { name: 'Khat & Beard', icon: '🪒' },
+          { name: 'Desi Champi & Massage', icon: '💆‍♂️' },
+          { name: 'Facials & Cleansing', icon: '✨' },
+          { name: 'Groom Packages', icon: '👑' },
+          { name: 'Kids Cuts', icon: '👦' }
+        ];
+
+        body.innerHTML = `
+          <div class="w-full max-w-2xl text-center">
+            <div class="font-mono text-[11px] font-bold uppercase tracking-widest text-slate">STEP 1 OF 4</div>
+            <h1 class="display-tight font-extrabold text-2xl sm:text-4xl text-ink mt-2">
+              Which services do you offer?
+            </h1>
+            <p class="text-xs sm:text-sm text-slate mt-2">
+              We'll set up your Karachi barbershop profile and live queue counter automatically.
+            </p>
+
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
+              ${categories.map(item => {
+                const selected = wizardState.offeredCategories.includes(item.name);
+                return `
+                  <button type="button" onclick="toggleWizardCategory('${item.name}')"
+                    class="p-4 rounded-2xl border transition flex items-center justify-between gap-2 ${selected ? 'border-indigo-brand bg-indigo-soft/40 ring-1 ring-indigo-brand' : 'border-line bg-white hover:border-ink/40'}">
+                    <div class="flex items-center gap-2.5">
+                      <span class="text-lg">${item.icon}</span>
+                      <span class="text-xs sm:text-sm font-bold text-ink">${item.name}</span>
+                    </div>
+                    ${selected ? '<span class="w-5 h-5 rounded-full bg-indigo-brand text-white text-[11px] flex items-center justify-center font-bold">✓</span>' : ''}
+                  </button>
+                `;
+              }).join('')}
+            </div>
+
+            <div class="mt-8">
+              <button type="button" onclick="wizardNextStep()"
+                class="min-h-[48px] px-10 py-3 rounded-full bg-indigo-brand hover:bg-indigo-dark text-white text-sm font-bold transition shadow-sm">
+                Continue
+              </button>
+            </div>
+          </div>
+        `;
+      } else if (s === 2) {
+        body.innerHTML = `
+          <div class="w-full max-w-lg text-center">
+            <div class="font-mono text-[11px] font-bold uppercase tracking-widest text-slate">STEP 2 OF 4</div>
+            <h1 class="display-tight font-extrabold text-2xl sm:text-4xl text-ink mt-2">
+              Where is your barbershop located?
+            </h1>
+            <p class="text-xs sm:text-sm text-slate mt-2">
+              Customers in your Karachi neighborhood will discover your live wait times.
+            </p>
+
+            <div class="mt-7 space-y-4 text-left">
+              <div>
+                <label class="block text-xs font-bold text-ink mb-1.5">Barbershop Name *</label>
+                <input id="wiz-shop-name" type="text" value="${wizardState.shopName}" placeholder="e.g. Shahjee Classic Hair Saloon"
+                  class="w-full min-h-[46px] rounded-xl border border-line bg-pearl px-4 py-2 text-sm text-ink focus:outline-none focus:border-ink" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-ink mb-1.5">Karachi Area *</label>
+                <select id="wiz-area"
+                  class="w-full min-h-[46px] rounded-xl border border-line bg-pearl px-4 py-2 text-sm font-bold text-ink focus:outline-none focus:border-ink">
+                  ${KARACHI_AREAS.filter(a => a !== 'All Karachi').map(a =>
+                    `<option value="${a}" ${wizardState.area === a ? 'selected' : ''}>${a}</option>`
+                  ).join('')}
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-ink mb-1.5">Street &amp; Famous Landmark *</label>
+                <input id="wiz-landmark" type="text" value="${wizardState.landmark}" placeholder="e.g. Near Gol Market Chowrangi, Nazimabad No. 4"
+                  class="w-full min-h-[46px] rounded-xl border border-line bg-pearl px-4 py-2 text-sm text-ink focus:outline-none focus:border-ink" />
+              </div>
+            </div>
+
+            <div class="mt-8 flex items-center justify-center gap-3">
+              <button type="button" onclick="wizardPrevStep()" class="min-h-[48px] px-6 py-3 rounded-full border border-line text-sm font-bold text-ink">
+                Back
+              </button>
+              <button type="button" onclick="wizardNextStep()" class="min-h-[48px] px-10 py-3 rounded-full bg-indigo-brand hover:bg-indigo-dark text-white text-sm font-bold">
+                Continue
+              </button>
+            </div>
+          </div>
+        `;
+      } else if (s === 3) {
+        let chairInputs = '';
+        for (let i = 0; i < wizardState.chairCount; i++) {
+          chairInputs += `
+            <div class="flex items-center gap-3 p-3 rounded-xl border border-line bg-pearl/60">
+              <span class="font-mono text-xs font-bold text-indigo-brand shrink-0">Chair 0${i + 1}</span>
+              <input id="wiz-ustad-${i}" type="text" value="${wizardState.ustadNames[i]}"
+                class="w-full min-h-[38px] rounded-lg border border-line bg-white px-3 py-1 text-xs sm:text-sm font-bold text-ink" />
+            </div>
+          `;
+        }
+
+        body.innerHTML = `
+          <div class="w-full max-w-lg text-center">
+            <div class="font-mono text-[11px] font-bold uppercase tracking-widest text-slate">STEP 3 OF 4</div>
+            <h1 class="display-tight font-extrabold text-2xl sm:text-4xl text-ink mt-2">
+              How many barber chairs do you have?
+            </h1>
+            <p class="text-xs sm:text-sm text-slate mt-2">
+              Each chair gets its own live token counter on your Shop Counter screen.
+            </p>
+
+            <div class="mt-6 flex justify-center gap-2">
+              ${[1, 2, 3, 4, 5, 6].map(n => `
+                <button type="button" onclick="wizardState.chairCount=${n}; renderOnboardingWizard();"
+                  class="w-11 h-11 rounded-full font-mono text-sm font-bold border transition ${wizardState.chairCount === n ? 'bg-ink text-white border-ink' : 'bg-white text-ink border-line hover:border-ink'}">
+                  ${n}
+                </button>
+              `).join('')}
+            </div>
+
+            <div class="mt-6 space-y-2.5 text-left">
+              ${chairInputs}
+            </div>
+
+            <div class="mt-8 flex items-center justify-center gap-3">
+              <button type="button" onclick="wizardPrevStep()" class="min-h-[48px] px-6 py-3 rounded-full border border-line text-sm font-bold text-ink">
+                Back
+              </button>
+              <button type="button" onclick="wizardNextStep()" class="min-h-[48px] px-10 py-3 rounded-full bg-indigo-brand hover:bg-indigo-dark text-white text-sm font-bold">
+                Continue
+              </button>
+            </div>
+          </div>
+        `;
+      } else {
+        body.innerHTML = `
+          <div class="w-full max-w-lg text-center">
+            <div class="font-mono text-[11px] font-bold uppercase tracking-widest text-slate">STEP 4 OF 4</div>
+            <h1 class="display-tight font-extrabold text-2xl sm:text-4xl text-ink mt-2">
+              Set your shop's PKR rates
+            </h1>
+            <p class="text-xs sm:text-sm text-slate mt-2">
+              Customers pay directly at your counter after their haircut.
+            </p>
+
+            <div class="mt-7 space-y-3 text-left">
+              <div class="p-4 rounded-2xl border border-line bg-pearl/60 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-sm text-ink">Signature Haircut</div>
+                  <div class="text-xs text-slate">25 mins</div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-mono text-xs text-slate">Rs.</span>
+                  <input id="wiz-price-cut" type="number" value="${wizardState.priceHaircut}" step="50"
+                    class="w-24 min-h-[40px] rounded-xl border border-line bg-white px-3 py-1 text-right font-mono text-sm font-bold text-ink" />
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl border border-line bg-pearl/60 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-sm text-ink">Beard Trim &amp; Khat</div>
+                  <div class="text-xs text-slate">15 mins</div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-mono text-xs text-slate">Rs.</span>
+                  <input id="wiz-price-khat" type="number" value="${wizardState.priceKhat}" step="50"
+                    class="w-24 min-h-[40px] rounded-xl border border-line bg-white px-3 py-1 text-right font-mono text-sm font-bold text-ink" />
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl border border-line bg-pearl/60 flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-sm text-ink">Desi Oil Champi</div>
+                  <div class="text-xs text-slate">20 mins</div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-mono text-xs text-slate">Rs.</span>
+                  <input id="wiz-price-champi" type="number" value="${wizardState.priceChampi}" step="50"
+                    class="w-24 min-h-[40px] rounded-xl border border-line bg-white px-3 py-1 text-right font-mono text-sm font-bold text-ink" />
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 flex items-center justify-center gap-3">
+              <button type="button" onclick="wizardPrevStep()" class="min-h-[48px] px-6 py-3 rounded-full border border-line text-sm font-bold text-ink">
+                Back
+              </button>
+              <button type="button" onclick="wizardNextStep()" class="min-h-[48px] px-8 py-3 rounded-full bg-ink hover:bg-indigo-brand text-white text-sm font-bold">
+                Publish Shop &amp; Open Counter →
+              </button>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // RENDER SHOPIFY-INSPIRED MERCHANT COUNTER VIEW
+    // -----------------------------------------------------------------------
+    function renderCounterView() {
+      const shop = getShopById(appState.counterShopId);
+      const dropdown = document.getElementById('counter-shop-dropdown');
+      if (dropdown) {
+        dropdown.innerHTML = appState.shops.map(s =>
+          `<option value="${s.id}" ${s.id === shop.id ? 'selected' : ''}>${s.name} (${s.area})</option>`
+        ).join('');
+      }
+
+      const heading = document.getElementById('counter-heading');
+      if (heading) heading.textContent = `${shop.name} — Live Counter`;
+
+      const addr = document.getElementById('counter-shop-address');
+      if (addr) addr.textContent = `${shop.area} • ${shop.landmark} • Next Token: #QTR-${shop.nextToken}`;
+
+      const totalWaiting = shop.chairs.reduce((sum, c) => sum + c.queue.length + (c.currentCustomer ? 1 : 0), 0);
+      const avgWait = Math.round(shop.chairs.reduce((sum, c) => sum + getChairWaitMins(c), 0) / shop.chairs.length);
+
+      const kpiStrip = document.getElementById('counter-kpi-strip');
+      if (kpiStrip) {
+        kpiStrip.innerHTML = `
+          <div class="bg-white rounded-2xl border border-line p-4 sm:p-5">
+            <div class="text-xs font-semibold text-slate">Active Customers (In Chair + Queue)</div>
+            <div class="font-mono font-extrabold text-3xl text-ink tabular-nums mt-1">${totalWaiting}</div>
+            <div class="mt-3 flex items-end gap-1.5 h-6">
+              <span class="w-2 h-2 rounded-xs bg-indigo-soft"></span>
+              <span class="w-2 h-4 rounded-xs bg-indigo-soft"></span>
+              <span class="w-2 h-6 rounded-xs bg-indigo-brand"></span>
+              <span class="w-2 h-3 rounded-xs bg-indigo-soft"></span>
+              <span class="w-2 h-5 rounded-xs bg-indigo-brand"></span>
+              <span class="text-[11px] text-emerald-dark font-bold ml-2">● Synced with Karachi app</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-line p-4 sm:p-5">
+            <div class="text-xs font-semibold text-slate">Haircuts Completed Today</div>
+            <div class="font-mono font-extrabold text-3xl text-ink tabular-nums mt-1">${shop.completedToday || 28}</div>
+            <div class="text-xs text-slate mt-3">Next issued token: <strong class="font-mono text-ink">#QTR-${shop.nextToken}</strong></div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-line p-4 sm:p-5">
+            <div class="text-xs font-semibold text-slate">Average Chair Wait</div>
+            <div class="font-mono font-extrabold text-3xl text-ink tabular-nums mt-1">${avgWait}m</div>
+            <div class="text-xs text-emerald-dark font-bold mt-3">${shop.chairs.filter(c => !c.currentCustomer).length} of ${shop.chairs.length} chairs open now</div>
+          </div>
+        `;
+      }
+
+      const grid = document.getElementById('counter-chairs-grid');
+      if (grid) {
+        grid.innerHTML = shop.chairs.map(chair => {
+          const active = chair.currentCustomer;
+          return `
+            <div class="bg-white rounded-2xl border border-line p-5 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-3.5 border-b border-line">
+                  <div class="flex items-center gap-2.5">
+                    <img src="${chair.avatar}" alt="${chair.ustadName}"
+                      onerror="this.src='https://placehold.co/80x80/111113/FFFFFF?text=U'"
+                      class="w-9 h-9 rounded-full object-cover" />
+                    <div>
+                      <div class="font-mono text-[10px] font-bold uppercase text-indigo-brand">Chair 0${chair.number}</div>
+                      <h3 class="font-bold text-sm text-ink">${chair.ustadName}</h3>
+                    </div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full font-mono text-[11px] font-bold ${active ? 'bg-amber-50 text-amber-700' : 'bg-emerald-soft text-emerald-dark'}">
+                    ${active ? 'BUSY' : 'OPEN'}
+                  </span>
+                </div>
+
+                <div class="my-4">
+                  ${active ? `
+                    <div class="p-4 rounded-2xl bg-pearl border border-line">
+                      <div class="flex items-center justify-between text-[11px]">
+                        <span class="font-mono font-bold text-slate">NOW SERVING</span>
+                        <span class="font-mono font-bold px-2 py-0.5 rounded bg-ink text-white">${active.source}</span>
+                      </div>
+                      <div class="font-mono font-extrabold text-3xl text-ink tabular-nums mt-1">#QTR-${active.tokenNumber}</div>
+                      <div class="font-bold text-sm text-ink mt-1">${active.name}</div>
+                      <div class="text-xs text-slate mt-0.5">${active.service} • ~${active.remainingMins} mins</div>
+                    </div>
+
+                    <button type="button" onclick="advanceChairQueue('${shop.id}', '${chair.id}')"
+                      class="w-full min-h-[48px] mt-3 px-4 py-3 rounded-full bg-emerald-live hover:bg-emerald-dark text-white text-xs sm:text-sm font-bold transition shadow-xs">
+                      ✓ Finish Cut &amp; Call Next (+1)
+                    </button>
+                  ` : `
+                    <div class="p-6 rounded-2xl bg-pearl/60 border border-dashed border-line text-center">
+                      <div class="font-bold text-sm text-emerald-dark">Chair is Open</div>
+                      <p class="text-xs text-slate mt-1">Ready for next home token or walk-in.</p>
+                    </div>
+                  `}
+                </div>
+
+                <div class="pt-3 border-t border-line">
+                  <div class="flex items-center justify-between text-xs font-bold text-ink mb-2">
+                    <span>Waiting in Line</span>
+                    <span class="font-mono text-slate">${chair.queue.length}</span>
+                  </div>
+                  ${chair.queue.length === 0 ? `
+                    <p class="text-xs text-slate italic py-1">No one waiting on Chair 0${chair.number}.</p>
+                  ` : `
+                    <div class="space-y-2">
+                      ${chair.queue.map((item, idx) => `
+                        <div class="p-2.5 rounded-xl border ${item.isUser ? 'border-indigo-brand bg-indigo-soft/40' : 'border-line bg-white'} flex items-center justify-between gap-2">
+                          <div class="min-w-0">
+                            <div class="flex items-center gap-1.5">
+                              <span class="font-mono font-bold text-xs text-ink tabular-nums">#QTR-${item.tokenNumber}</span>
+                              <span class="text-xs font-bold text-ink truncate">${item.name}</span>
+                            </div>
+                            <div class="text-[11px] text-slate truncate mt-0.5">${item.service}</div>
+                          </div>
+                          <span class="font-mono text-[10px] font-bold px-2 py-0.5 rounded-full bg-pearl text-ink shrink-0">
+                            ${idx === 0 ? 'Next' : `#${idx + 1}`}
+                          </span>
+                        </div>
+                      `).join('')}
+                    </div>
+                  `}
+                </div>
+              </div>
+
+              <div class="mt-5 pt-3.5 border-t border-line">
+                <div class="text-[11px] font-semibold text-slate mb-2">Log Walk-in Customer (#QTR-${shop.nextToken})</div>
+                <div class="grid grid-cols-2 gap-2">
+                  <button type="button" onclick="addCounterWalkIn('${shop.id}', '${chair.id}', 'cut')"
+                    class="min-h-[40px] px-3 py-2 rounded-full bg-ink hover:bg-indigo-brand text-white text-xs font-bold transition">
+                    + Walk-in Cut
+                  </button>
+                  <button type="button" onclick="addCounterWalkIn('${shop.id}', '${chair.id}', 'khat')"
+                    class="min-h-[40px] px-3 py-2 rounded-full border border-line bg-white hover:bg-pearl text-ink text-xs font-bold transition">
+                    + Walk-in Khat
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // MASTER VIEW SWITCHER & RENDER LOOP
+    // -----------------------------------------------------------------------
+    function renderAll() {
+      const v = appState.activeView;
+      document.getElementById('view-explore').classList.toggle('hidden', v !== 'explore');
+      document.getElementById('view-split').classList.toggle('hidden', v !== 'split');
+      document.getElementById('view-counter').classList.toggle('hidden', v !== 'counter');
+
+      const countBadge = document.getElementById('header-shop-count');
+      if (countBadge) countBadge.textContent = appState.shops.length;
+
+      const counterLabel = document.getElementById('counter-toggle-label');
+      if (counterLabel) counterLabel.textContent = v === 'counter' ? 'Exit Counter' : 'Shop Counter';
+
+      // Desktop nav active highlights
+      const navExplore = document.getElementById('top-nav-explore');
+      const navSplit = document.getElementById('top-nav-split');
+      if (navExplore) navExplore.className = v === 'explore'
+        ? 'px-3.5 py-2 rounded-full text-sm font-semibold transition-colors bg-pearl text-ink'
+        : 'px-3.5 py-2 rounded-full text-sm font-semibold transition-colors text-slate hover:text-ink';
+      if (navSplit) navSplit.className = v === 'split'
+        ? 'px-3.5 py-2 rounded-full text-sm font-semibold transition-colors bg-pearl text-ink flex items-center gap-1.5'
+        : 'px-3.5 py-2 rounded-full text-sm font-semibold transition-colors text-slate hover:text-ink flex items-center gap-1.5';
+
+      // Mobile bottom tab active highlights
+      ['explore', 'split', 'counter'].forEach(tab => {
+        const el = document.getElementById(`mob-tab-${tab}`);
+        if (el) el.className = v === tab
+          ? 'flex flex-col items-center justify-center py-1.5 rounded-xl text-indigo-brand'
+          : 'flex flex-col items-center justify-center py-1.5 rounded-xl text-slate';
+      });
+
+      renderFilterChipsAndSelects();
+      renderActiveTokenBanner();
+      renderExploreVenues();
+      renderSplitView();
+      renderCounterView();
+
+      if (!document.getElementById('token-modal-backdrop').classList.contains('hidden')) {
+        renderTokenModal();
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderAll();
+    });
+  </script>
+</body>
+</html>
