@@ -119,12 +119,32 @@
         font-size: 16px !important;
       }
     }
+    /* Boarding pass motion: each plays only when its value actually changes */
+    @keyframes ticketPrint {
+      from { opacity: 0; transform: translateY(-28px); clip-path: inset(0 0 100% 0 round 24px); }
+      to   { opacity: 1; transform: none; clip-path: inset(0 0 0 0 round 24px); }
+    }
+    .animate-ticket-print { animation: ticketPrint 0.75s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes rollIn { from { transform: translateY(70%); opacity: 0; } to { transform: none; opacity: 1; } }
+    .animate-roll { animation: rollIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes seatLeave { 0% { opacity: 1; } 100% { opacity: 0; transform: translateY(-10px) scale(0.5); width: 0; margin-right: -6px; } }
+    .animate-seat-leave { animation: seatLeave 0.6s ease-in forwards; }
+    @keyframes seatShift { from { transform: translateX(28px); } to { transform: none; } }
+    .animate-seat-shift { animation: seatShift 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+    .seat { flex: none; width: 22px; height: 26px; border-radius: 8px 8px 4px 4px; background: #E2E8F0; }
+    .seat-chair { background: #111113; color: #fff; display: grid; place-items: center; font-size: 12px; }
+    .seat-you { width: auto; padding: 0 7px; background: #635BFF; color: #fff; display: grid; place-items: center;
+      font: 700 10px/1 'JetBrains Mono', monospace; }
+    @media (prefers-reduced-motion: reduce) {
+      .animate-ticket-print, .animate-roll, .animate-seat-leave, .animate-seat-shift,
+      .animate-live-pulse, .animate-drawer-up { animation: none !important; }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col bg-white text-ink selection:bg-indigo-brand selection:text-white">
 
   <!-- Toast Stack -->
-  <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 sm:left-auto sm:right-5 sm:translate-x-0 z-[120] flex flex-col gap-2 w-[calc(100vw-2rem)] max-w-sm pointer-events-none"></div>
+  <div id="toast-container" role="status" aria-live="polite" class="fixed top-4 left-1/2 -translate-x-1/2 sm:left-auto sm:right-5 sm:translate-x-0 z-[120] flex flex-col gap-2 w-[calc(100vw-2rem)] max-w-sm pointer-events-none"></div>
 
   <!-- ===================================================================== -->
   <!-- TOP NAVIGATION BAR (DESKTOP + TABLET + MOBILE)                        -->
@@ -168,7 +188,7 @@
         <button type="button" id="header-token-pill" onclick="openMyTokenModal()"
           class="hidden items-center gap-2 px-3 sm:px-3.5 py-2 rounded-full bg-emerald-soft border border-emerald-live/30 text-emerald-dark text-xs font-bold hover:bg-emerald-live hover:text-white transition">
           <span class="w-2 h-2 rounded-full bg-emerald-live animate-live-pulse"></span>
-          <span id="header-token-pill-text" class="font-mono tabular-nums">#QTR-18 • 1 ahead</span>
+          <span id="header-token-pill-text" class="font-mono tabular-nums">#KHI-18 • 1 ahead</span>
         </button>
 
         <!-- List Your Shop Pill -->
@@ -481,7 +501,7 @@
               <div class="bg-white rounded-xl border border-line p-3.5 flex items-center justify-between">
                 <div>
                   <div class="text-[11px] font-mono text-slate">CHAIR 01 • USTAD TARIQ</div>
-                  <div class="font-bold text-sm text-ink mt-0.5">Serving #QTR-12 • 2 waiting</div>
+                  <div class="font-bold text-sm text-ink mt-0.5">Serving #KHI-12 • 2 waiting</div>
                 </div>
                 <span class="px-3 py-1.5 rounded-full bg-ink text-white text-xs font-bold">Next (+1)</span>
               </div>
@@ -1246,6 +1266,8 @@
     }
 
     let appState = loadState();
+    let justClaimed = false;
+    let passMemo = { token: null, serving: null, ahead: null };
 
     // Onboarding Wizard Transient State (Mangomint 4-step flow)
     let wizardState = {
@@ -1267,13 +1289,30 @@
         if (raw) {
           const parsed = JSON.parse(raw);
           if (parsed && Array.isArray(parsed.shops) && parsed.shops.length > 0) {
-            return parsed;
+            return withClock(parsed);
           }
         }
       } catch (e) {
         console.warn('Could not load saved state.');
       }
-      return getDefaultState();
+      return withClock(getDefaultState());
+    }
+
+    // Seeded/legacy customers only have remainingMins: start their clock now.
+    function withClock(state) {
+      for (const shop of state.shops) for (const chair of shop.chairs) {
+        const c = chair.currentCustomer;
+        if (c && !c.startedAt) { c.durationMins = c.durationMins || c.remainingMins; c.startedAt = Date.now(); }
+      }
+      return state;
+    }
+
+    function minsLeft(c) {
+      return Math.max(1, c.durationMins - Math.floor((Date.now() - c.startedAt) / 60000));
+    }
+
+    function minsElapsed(c) {
+      return Math.floor((Date.now() - c.startedAt) / 60000);
     }
 
     function saveState() {
@@ -1283,6 +1322,48 @@
         console.warn('Could not save state.');
       }
     }
+
+    // Live sync: Shop Desk in one tab/window updates customer token screens in others (same device).
+    // shortcut: localStorage only syncs one browser; cross-device needs a realtime backend (e.g. Supabase/Firebase).
+    window.addEventListener('storage', (e) => {
+      if (e.key !== STORAGE_KEY) return;
+      const view = appState.activeView;
+      const before = getUserTokenProgress();
+      appState = loadState();
+      appState.activeView = view;
+      renderAll();
+      notifyTokenChange(before, getUserTokenProgress());
+    });
+
+    function buzz(pattern) {
+      try { if (navigator.vibrate) navigator.vibrate(pattern); } catch (e) {}
+    }
+
+    function notifyTokenChange(prev, next) {
+      if (!prev) return;
+      if (!next) {
+        showToast('Token Released', 'The shop marked your token as a no-show. Claim a new one anytime.', 'amber');
+        return;
+      }
+      const was = prev.token.status, now = next.token.status;
+      if (now === 'in_chair' && was !== 'in_chair') {
+        buzz([300, 120, 300, 120, 300]);
+        showToast(`YOUR CHAIR IS READY (#KHI-${next.token.tokenNumber})`, `Chair 0${next.chair.number} with ${next.chair.ustadName}. Step in now.`, 'green');
+      } else if (now === 'waiting' && was === 'in_chair') {
+        buzz([500]);
+        showToast('You Missed Your Call', `You're next after the current cut at ${next.shop.name}. Hurry!`, 'amber');
+      } else if (now === 'done' && was !== 'done') {
+        showToast('Haircut Completed', `Shukriya! Pay ${formatPKR(next.token.totalPkr)} at the counter.`, 'green');
+      } else if (now === 'waiting' && next.ahead <= 1 && prev.ahead > 1) {
+        buzz([200, 100, 200]);
+        showToast('LEAVE HOME NOW — You\'re Next', `${next.shop.name} • ${next.shop.landmark}`, 'amber');
+      } else if (now === 'waiting' && next.ahead < prev.ahead) {
+        showToast(`Queue Moved (#KHI-${next.token.tokenNumber})`, `${next.ahead} ahead • ~${next.estWait} min`, 'neutral');
+      }
+    }
+
+    // Keep countdowns honest while the page is open.
+    setInterval(() => { if (!document.hidden) renderAll(); }, 30000);
 
     function resetDemoState() {
       localStorage.removeItem(STORAGE_KEY);
@@ -1302,7 +1383,7 @@
     }
 
     function getChairWaitMins(chair) {
-      let mins = chair.currentCustomer ? chair.currentCustomer.remainingMins : 0;
+      let mins = chair.currentCustomer ? minsLeft(chair.currentCustomer) : 0;
       for (const item of chair.queue) {
         mins += item.durationMins;
       }
@@ -1339,7 +1420,7 @@
       if (t.status === 'waiting') {
         if (chair.currentCustomer && chair.currentCustomer.tokenNumber !== t.tokenNumber) {
           ahead += 1;
-          estWait += chair.currentCustomer.remainingMins;
+          estWait += minsLeft(chair.currentCustomer);
         }
         for (const q of chair.queue) {
           if (q.tokenNumber === t.tokenNumber) break;
@@ -1380,6 +1461,8 @@
           <div class="text-xs text-slate mt-0.5 leading-relaxed">${message}</div>
         </div>
       `;
+      // Newest 2 only: stacked alerts would cover the boarding pass on a phone.
+      while (container.children.length >= 2) container.firstElementChild.remove();
       container.appendChild(el);
       setTimeout(() => {
         if (el.parentElement) {
@@ -1527,7 +1610,9 @@
           tokenNumber,
           name: `${name} (You)`,
           service: serviceNames,
-          remainingMins: totalMins,
+          durationMins: totalMins,
+          startedAt: Date.now(),
+          pref: appState.selectedChairId,
           source: 'APP',
           isUser: true
         };
@@ -1548,7 +1633,7 @@
         };
         showToast(
           `Chair Ready at ${shop.name}!`,
-          `Token #QTR-${tokenNumber} • Chair 0${targetChair.number} (${targetChair.ustadName}) is open right now.`,
+          `Token #KHI-${tokenNumber} • Chair 0${targetChair.number} (${targetChair.ustadName}) is open right now.`,
           'green'
         );
       } else {
@@ -1560,7 +1645,8 @@
           durationMins: totalMins,
           pricePkr: totalPkr,
           source: 'APP',
-          isUser: true
+          isUser: true,
+          pref: appState.selectedChairId
         });
         appState.userToken = {
           tokenNumber,
@@ -1580,12 +1666,13 @@
 
         const ahead = (targetChair.currentCustomer ? 1 : 0) + (targetChair.queue.length - 1);
         showToast(
-          `Token #QTR-${tokenNumber} Claimed!`,
+          `Token #KHI-${tokenNumber} Claimed!`,
           `${shop.name} (${shop.area}) • ${ahead} ahead on Chair 0${targetChair.number}.`,
           ahead === 1 ? 'amber' : 'neutral'
         );
       }
 
+      justClaimed = true;
       saveState();
       closeShopDrawer();
       renderAll();
@@ -1605,19 +1692,7 @@
         shop.completedToday = (shop.completedToday || 20) + 1;
       }
 
-      if (chair.queue.length > 0) {
-        const nextUp = chair.queue.shift();
-        chair.currentCustomer = {
-          tokenNumber: nextUp.tokenNumber,
-          name: nextUp.name,
-          service: nextUp.service,
-          remainingMins: nextUp.durationMins,
-          source: nextUp.source,
-          isUser: !!nextUp.isUser
-        };
-      } else {
-        chair.currentCustomer = null;
-      }
+      pullNext(shop, chair);
 
       // Sync active user token if affected
       if (appState.userToken && appState.userToken.shopId === shop.id && appState.userToken.chairId === chair.id) {
@@ -1626,14 +1701,14 @@
         if (finished && finished.tokenNumber === uNum) {
           appState.userToken.status = 'done';
           showToast(
-            `Haircut Completed (#QTR-${uNum})`,
+            `Haircut Completed (#KHI-${uNum})`,
             `Shukriya for visiting ${shop.name}! Total paid at counter: ${formatPKR(appState.userToken.totalPkr)}.`,
             'green'
           );
         } else if (chair.currentCustomer && chair.currentCustomer.tokenNumber === uNum) {
           appState.userToken.status = 'in_chair';
           showToast(
-            `YOUR CHAIR IS READY (#QTR-${uNum})!`,
+            `YOUR CHAIR IS READY (#KHI-${uNum})!`,
             `Step into Chair 0${chair.number} with ${chair.ustadName} at ${shop.name}.`,
             'green'
           );
@@ -1642,12 +1717,12 @@
           if (prog && prog.ahead === 1) {
             showToast(
               `LEAVE HOME NOW — 1 Person Ahead!`,
-              `Chair 0${chair.number} at ${shop.name} just finished a cut. You're up right after #QTR-${chair.currentCustomer.tokenNumber}.`,
+              `Chair 0${chair.number} at ${shop.name} just finished a cut. You're up right after #KHI-${chair.currentCustomer.tokenNumber}.`,
               'amber'
             );
           } else if (prog) {
             showToast(
-              `Live Number Updated (#QTR-${uNum})`,
+              `Live Number Updated (#KHI-${uNum})`,
               `${shop.name} advanced the queue. ${prog.ahead} ahead (~${prog.estWait} mins).`,
               'neutral'
             );
@@ -1655,11 +1730,49 @@
         }
       } else {
         const nextMsg = chair.currentCustomer
-          ? `Now serving #QTR-${chair.currentCustomer.tokenNumber} (${chair.currentCustomer.name})`
+          ? `Now serving #KHI-${chair.currentCustomer.tokenNumber} (${chair.currentCustomer.name})`
           : `Chair 0${chair.number} is now FREE`;
         showToast(`${shop.name} • Chair 0${chair.number} Done`, nextMsg, 'neutral');
       }
 
+      saveState();
+      renderAll();
+    }
+
+    // A freed chair takes its own next-in-line, or an earlier "Any Ustad" token waiting on a busier chair.
+    // Customers who picked a specific Ustad keep waiting for that chair.
+    function pullNext(shop, chair) {
+      let best = null, from = null;
+      for (const c of shop.chairs) for (const q of c.queue) {
+        const eligible = c === chair ? q === c.queue[0] : q.pref === 'any';
+        if (eligible && (!best || q.tokenNumber < best.tokenNumber)) { best = q; from = c; }
+      }
+      if (!best) { chair.currentCustomer = null; return null; }
+      from.queue.splice(from.queue.indexOf(best), 1);
+      chair.currentCustomer = { ...best, startedAt: Date.now() };
+      const t = appState.userToken;
+      if (t && t.shopId === shop.id && t.tokenNumber === best.tokenNumber) t.chairId = chair.id;
+      return best;
+    }
+
+    // Counter: called customer hasn't arrived. Give them one cut's grace as next-in-line; if nobody else is waiting, release the token.
+    function markNoShow(shopId, chairId) {
+      const shop = getShopById(shopId);
+      const chair = shop.chairs.find(c => c.id === chairId);
+      const missed = chair && chair.currentCustomer;
+      if (!missed) return;
+      const t = appState.userToken;
+      const isMine = t && t.shopId === shop.id && t.tokenNumber === missed.tokenNumber;
+      pullNext(shop, chair);
+      if (chair.currentCustomer) {
+        const { startedAt, ...item } = missed;
+        chair.queue.unshift({ ...item, pref: chair.id });
+        if (isMine) { t.status = 'waiting'; t.chairId = chair.id; }
+        showToast(`#KHI-${missed.tokenNumber} Not Here`, `Moved behind #KHI-${chair.currentCustomer.tokenNumber}. Next on Chair 0${chair.number}.`, 'amber');
+      } else {
+        if (isMine) appState.userToken = null;
+        showToast(`#KHI-${missed.tokenNumber} Released`, `No-show with nobody waiting. Chair 0${chair.number} is open.`, 'neutral');
+      }
       saveState();
       renderAll();
     }
@@ -1679,19 +1792,14 @@
       const me = chair.queue[idx];
       const nextPerson = chair.queue[idx + 1];
 
-      const tempNum = me.tokenNumber;
-      me.tokenNumber = nextPerson.tokenNumber;
-      nextPerson.tokenNumber = tempNum;
-
       chair.queue[idx] = nextPerson;
       chair.queue[idx + 1] = me;
-      appState.userToken.tokenNumber = me.tokenNumber;
 
       saveState();
       renderAll();
       showToast(
-        `Swapped 1 Spot → #QTR-${me.tokenNumber}`,
-        `Stuck in Karachi traffic? #QTR-${nextPerson.tokenNumber} moved ahead of you at ${shop.name}.`,
+        `Moved Back 1 Spot (#KHI-${me.tokenNumber})`,
+        `Stuck in Karachi traffic? #KHI-${nextPerson.tokenNumber} moved ahead of you at ${shop.name}.`,
         'amber'
       );
     }
@@ -1760,7 +1868,8 @@
           tokenNumber,
           name: `Walk-in #${tokenNumber}`,
           service: chosenService.name,
-          remainingMins: chosenService.durationMins,
+          durationMins: chosenService.durationMins,
+          startedAt: Date.now(),
           source: 'WALK-IN'
         };
       } else {
@@ -1778,7 +1887,7 @@
       saveState();
       renderAll();
       showToast(
-        `Walk-in #QTR-${tokenNumber} Added`,
+        `Walk-in #KHI-${tokenNumber} Added`,
         `${chosenService.name} queued on Chair 0${chair.number} (${chair.ustadName}).`,
         'neutral'
       );
@@ -1858,11 +1967,6 @@
 
       handleEl.addEventListener('touchend', finishSwipe, { passive: true });
       handleEl.addEventListener('touchcancel', finishSwipe, { passive: true });
-    }
-
-    function closeOnboardingWizard() {
-      document.getElementById('onboarding-modal-backdrop').classList.add('hidden');
-      document.body.style.overflow = '';
     }
 
     function toggleWizardCategory(cat) {
@@ -2100,13 +2204,13 @@
         <div class="bg-ink text-white rounded-3xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-lg">
           <div class="flex items-center gap-3.5">
             <div class="px-3.5 py-2.5 rounded-2xl bg-white/10 border border-white/15 font-mono font-bold text-lg sm:text-xl text-white tabular-nums shrink-0">
-              #QTR-${token.tokenNumber}
+              #KHI-${token.tokenNumber}
             </div>
             <div>
               <div class="flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-emerald-live animate-live-pulse"></span>
                 <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-emerald-live">
-                  ${token.status === 'in_chair' ? 'Chair Ready Now' : token.status === 'done' ? 'Cut Completed' : `Serving #QTR-${chair.currentCustomer ? chair.currentCustomer.tokenNumber : 'Open'}`}
+                  ${token.status === 'in_chair' ? 'Chair Ready Now' : token.status === 'done' ? 'Cut Completed' : `Serving #KHI-${chair.currentCustomer ? chair.currentCustomer.tokenNumber : 'Open'}`}
                 </span>
               </div>
               <div class="font-bold text-base sm:text-lg text-white mt-0.5">
@@ -2144,7 +2248,7 @@
             <!-- Cover Photo with Carousel Indicator Dots & Live Wait Pill (Fresha Mobile Card Pattern) -->
             <div onclick="openShopDrawer('${shop.id}')" class="relative aspect-[16/10] bg-pearl overflow-hidden cursor-pointer">
               <img src="${shop.photo}" alt="${shop.name}"
-                onerror="this.src='https://placehold.co/800x500/111113/FFFFFF?text=${encodeURIComponent(shop.name)}'"
+                onerror="this.onerror=null;this.style.opacity=0"
                 class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" />
               <div class="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-ink/10"></div>
 
@@ -2456,11 +2560,11 @@
                       class="p-3 rounded-2xl border text-left transition flex items-center justify-between gap-2 ${active ? 'border-ink bg-pearl ring-1 ring-ink' : 'border-line bg-white hover:border-ink/40'}">
                       <div class="flex items-center gap-2.5 min-w-0">
                         <img src="${chair.avatar}" alt="${chair.ustadName}"
-                          onerror="this.src='https://placehold.co/80x80/111113/FFFFFF?text=U'"
+                          onerror="this.onerror=null;this.style.opacity=0"
                           class="w-8 h-8 rounded-full object-cover shrink-0" />
                         <div class="min-w-0">
                           <div class="font-bold text-xs text-ink truncate">${chair.ustadName}</div>
-                          <div class="text-[11px] text-slate truncate">Chair 0${chair.number} • ${chair.currentCustomer ? `#QTR-${chair.currentCustomer.tokenNumber}` : 'Free'}</div>
+                          <div class="text-[11px] text-slate truncate">Chair 0${chair.number} • ${chair.currentCustomer ? `#KHI-${chair.currentCustomer.tokenNumber}` : 'Free'}</div>
                         </div>
                       </div>
                       <span class="font-mono text-[11px] font-bold px-2 py-0.5 rounded-full shrink-0 ${w === 0 ? 'bg-emerald-soft text-emerald-dark' : 'bg-white text-ink border border-line'} tabular-nums">
@@ -2483,7 +2587,7 @@
                   <div class="text-[11px] text-slate mt-0.5">${shop.landmark}</div>
                 </div>
                 <span class="font-mono font-extrabold text-sm px-2.5 py-1 rounded-lg bg-white border border-line text-ink tabular-nums">
-                  #QTR-${shop.nextToken}
+                  #KHI-${shop.nextToken}
                 </span>
               </div>
 
@@ -2521,7 +2625,7 @@
 
                 <button type="button" onclick="claimQueueToken()"
                   class="w-full min-h-[48px] px-5 py-3 rounded-full bg-ink hover:bg-indigo-brand text-white text-sm font-bold transition-colors shadow-sm">
-                  Claim Token #QTR-${shop.nextToken} (${totalMins}m)
+                  Claim Token #KHI-${shop.nextToken} (${totalMins}m)
                 </button>
               </div>
             </div>
@@ -2540,7 +2644,7 @@
       if (!panel || !prog) return;
 
       const { token, shop, chair, ahead, estWait } = prog;
-      const nowServing = chair.currentCustomer ? `#QTR-${chair.currentCustomer.tokenNumber}` : 'FREE';
+      const nowServing = chair.currentCustomer ? `#KHI-${chair.currentCustomer.tokenNumber}` : 'FREE';
 
       let stepIndex = 0;
       if (token.status === 'done') stepIndex = 3;
@@ -2548,6 +2652,42 @@
       else if (ahead <= 1) stepIndex = 1;
 
       const steps = ['Queued at Home', 'Leave Home Now', 'In Chair', 'Done'];
+
+      const same = passMemo.token === token.tokenNumber;
+      const servingChanged = same && passMemo.serving !== nowServing;
+      const aheadDropped = same && token.status === 'waiting' && passMemo.ahead > ahead;
+      const printing = justClaimed;
+      justClaimed = false;
+      passMemo = { token: token.tokenNumber, serving: nowServing, ahead };
+
+      const shown = Math.min(ahead, 7);
+      const laneHTML = token.status === 'waiting' ? `
+        <div class="rounded-2xl border border-line p-3.5">
+          <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-slate mb-2.5">
+            <span>Live Qataar</span>
+            <span class="font-mono normal-case tabular-nums">${ahead === 0 ? 'You are first' : `${ahead} ahead of you`}</span>
+          </div>
+          <div class="flex items-end gap-1.5 overflow-hidden" role="img" aria-label="${ahead} people ahead of you">
+            <span class="seat seat-chair" aria-hidden="true">✂</span>
+            ${aheadDropped ? '<span class="seat animate-seat-leave"></span>' : ''}
+            ${Array.from({ length: shown }, () => `<span class="seat ${aheadDropped ? 'animate-seat-shift' : ''}"></span>`).join('')}
+            ${ahead > shown ? `<span class="font-mono text-[10px] font-bold text-slate pb-1">+${ahead - shown}</span>` : ''}
+            <span class="seat seat-you ${aheadDropped ? 'animate-seat-shift' : ''}">YOU</span>
+          </div>
+        </div>
+      ` : '';
+
+      const alertHTML = token.status === 'in_chair' ? `
+        <div class="p-3 rounded-xl bg-emerald-soft border border-emerald-live/30 text-emerald-dark text-xs font-bold flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-live animate-live-pulse"></span>
+          Your chair is ready: Chair 0${chair.number} with ${chair.ustadName}
+        </div>
+      ` : token.status === 'waiting' && ahead <= 1 ? `
+        <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-500 animate-live-pulse"></span>
+          Leave home now: you're next${ahead === 1 ? ' after the current cut' : ''}
+        </div>
+      ` : '';
 
       panel.innerHTML = `
         <!-- Mobile Swipe-to-Dismiss Drag Handle -->
@@ -2565,7 +2705,7 @@
           </div>
 
           <!-- Boarding Pass Ticket -->
-          <div class="bg-white rounded-3xl border border-line overflow-hidden shadow-sm">
+          <div class="bg-white rounded-3xl border border-line overflow-hidden shadow-sm ${printing ? 'animate-ticket-print' : ''}">
             <div class="bg-ink text-white p-5">
               <div class="flex items-center justify-between text-xs">
                 <span class="px-2.5 py-0.5 rounded-full bg-white/15 font-bold">${shop.area}</span>
@@ -2577,11 +2717,11 @@
               <div class="mt-5 grid grid-cols-2 gap-3 bg-white/10 rounded-2xl p-3.5 border border-white/10">
                 <div>
                   <div class="text-[10px] uppercase tracking-wider text-white/65 font-bold">Your Token</div>
-                  <div class="font-mono font-extrabold text-2xl sm:text-3xl text-white tabular-nums mt-0.5">#QTR-${token.tokenNumber}</div>
+                  <div class="font-mono font-extrabold text-2xl sm:text-3xl text-white tabular-nums mt-0.5">#KHI-${token.tokenNumber}</div>
                 </div>
                 <div class="text-right">
                   <div class="text-[10px] uppercase tracking-wider text-white/65 font-bold">Now Serving</div>
-                  <div class="font-mono font-extrabold text-2xl sm:text-3xl text-emerald-live tabular-nums mt-0.5">${nowServing}</div>
+                  <div class="font-mono font-extrabold text-2xl sm:text-3xl text-emerald-live tabular-nums mt-0.5 overflow-hidden"><div class="${servingChanged ? 'animate-roll' : ''}" aria-live="polite">${nowServing}</div></div>
                 </div>
               </div>
             </div>
@@ -2608,6 +2748,8 @@
 
             <!-- Live Progress Stepper + Interactive Controls -->
             <div class="p-5 space-y-4">
+              ${alertHTML}
+              ${laneHTML}
               <div class="grid grid-cols-4 gap-1.5">
                 ${steps.map((label, i) => `
                   <div>
@@ -2869,7 +3011,7 @@
       if (heading) heading.textContent = `${shop.name} — Live Counter`;
 
       const addr = document.getElementById('counter-shop-address');
-      if (addr) addr.textContent = `${shop.area} • ${shop.landmark} • Next Token: #QTR-${shop.nextToken}`;
+      if (addr) addr.textContent = `${shop.area} • ${shop.landmark} • Next Token: #KHI-${shop.nextToken}`;
 
       const totalWaiting = shop.chairs.reduce((sum, c) => sum + c.queue.length + (c.currentCustomer ? 1 : 0), 0);
       const avgWait = Math.round(shop.chairs.reduce((sum, c) => sum + getChairWaitMins(c), 0) / shop.chairs.length);
@@ -2893,7 +3035,7 @@
           <div class="bg-white rounded-2xl border border-line p-4 sm:p-5">
             <div class="text-xs font-semibold text-slate">Haircuts Completed Today</div>
             <div class="font-mono font-extrabold text-3xl text-ink tabular-nums mt-1">${shop.completedToday || 28}</div>
-            <div class="text-xs text-slate mt-3">Next issued token: <strong class="font-mono text-ink">#QTR-${shop.nextToken}</strong></div>
+            <div class="text-xs text-slate mt-3">Next issued token: <strong class="font-mono text-ink">#KHI-${shop.nextToken}</strong></div>
           </div>
 
           <div class="bg-white rounded-2xl border border-line p-4 sm:p-5">
@@ -2914,7 +3056,7 @@
                 <div class="flex items-center justify-between pb-3.5 border-b border-line">
                   <div class="flex items-center gap-2.5">
                     <img src="${chair.avatar}" alt="${chair.ustadName}"
-                      onerror="this.src='https://placehold.co/80x80/111113/FFFFFF?text=U'"
+                      onerror="this.onerror=null;this.style.opacity=0"
                       class="w-9 h-9 rounded-full object-cover" />
                     <div>
                       <div class="font-mono text-[10px] font-bold uppercase text-indigo-brand">Chair 0${chair.number}</div>
@@ -2933,15 +3075,21 @@
                         <span class="font-mono font-bold text-slate">NOW SERVING</span>
                         <span class="font-mono font-bold px-2 py-0.5 rounded bg-ink text-white">${active.source}</span>
                       </div>
-                      <div class="font-mono font-extrabold text-3xl text-ink tabular-nums mt-1">#QTR-${active.tokenNumber}</div>
+                      <div class="font-mono font-extrabold text-3xl text-ink tabular-nums mt-1">#KHI-${active.tokenNumber}</div>
                       <div class="font-bold text-sm text-ink mt-1">${active.name}</div>
-                      <div class="text-xs text-slate mt-0.5">${active.service} • ~${active.remainingMins} mins</div>
+                      <div class="text-xs mt-0.5 font-mono tabular-nums ${minsElapsed(active) > active.durationMins ? 'text-rose-600 font-bold' : 'text-slate'}">${active.service} • ${minsElapsed(active)}m / ${active.durationMins}m</div>
                     </div>
 
                     <button type="button" onclick="advanceChairQueue('${shop.id}', '${chair.id}')"
                       class="w-full min-h-[48px] mt-3 px-4 py-3 rounded-full bg-emerald-live hover:bg-emerald-dark text-white text-xs sm:text-sm font-bold transition shadow-xs">
                       ✓ Finish Cut &amp; Call Next (+1)
                     </button>
+                    ${active.source === 'APP' ? `
+                      <button type="button" onclick="markNoShow('${shop.id}', '${chair.id}')"
+                        class="w-full min-h-[44px] mt-2 px-4 py-2.5 rounded-full border border-line bg-white hover:bg-pearl text-ink text-xs font-bold transition">
+                        Not Here? Mark No-Show
+                      </button>
+                    ` : ''}
                   ` : `
                     <div class="p-6 rounded-2xl bg-pearl/60 border border-dashed border-line text-center">
                       <div class="font-bold text-sm text-emerald-dark">Chair is Open</div>
@@ -2963,7 +3111,7 @@
                         <div class="p-2.5 rounded-xl border ${item.isUser ? 'border-indigo-brand bg-indigo-soft/40' : 'border-line bg-white'} flex items-center justify-between gap-2">
                           <div class="min-w-0">
                             <div class="flex items-center gap-1.5">
-                              <span class="font-mono font-bold text-xs text-ink tabular-nums">#QTR-${item.tokenNumber}</span>
+                              <span class="font-mono font-bold text-xs text-ink tabular-nums">#KHI-${item.tokenNumber}</span>
                               <span class="text-xs font-bold text-ink truncate">${item.name}</span>
                             </div>
                             <div class="text-[11px] text-slate truncate mt-0.5">${item.service}</div>
@@ -2979,7 +3127,7 @@
               </div>
 
               <div class="mt-5 pt-3.5 border-t border-line">
-                <div class="text-[11px] font-semibold text-slate mb-2">Log Walk-in Customer (#QTR-${shop.nextToken})</div>
+                <div class="text-[11px] font-semibold text-slate mb-2">Log Walk-in Customer (#KHI-${shop.nextToken})</div>
                 <div class="grid grid-cols-2 gap-2">
                   <button type="button" onclick="addCounterWalkIn('${shop.id}', '${chair.id}', 'cut')"
                     class="min-h-[40px] px-3 py-2 rounded-full bg-ink hover:bg-indigo-brand text-white text-xs font-bold transition">
